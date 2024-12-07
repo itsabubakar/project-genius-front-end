@@ -15,7 +15,11 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', sans-serif;
+  @apply text-greyscale_title
+}
+
+
+.inter{
+  font-family: 'inter';
 }

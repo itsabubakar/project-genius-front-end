@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Image from 'next/image';
 import Menu from "../public/svg/menu.svg"
-import Button from "./ui/button";
+import Button from "./ui/headerButton";
 import Link from "next/link";
 
 const geistSans = localFont({
@@ -24,13 +24,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
+        <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+            
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+        </head>
+        <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         
       >
         <header className="h-[48px] sm:h-[80px] px-[16px] sm:px-[32px] md:px-[40px]
           font-outfit flex justify-between items-center">
-            
+
           <h1 className="text-greyscale_title text-[20px]
             sm:text-[28px] lg:-[32px] font-extrabold  ">
               Project
