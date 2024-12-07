@@ -1,5 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from 'next/image';
+import Menu from "../public/svg/menu.svg"
+import Button from "./ui/button";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,7 +26,36 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        
       >
+        <header className="h-[48px] sm:h-[80px] px-[16px] sm:px-[32px] md:px-[40px]
+          font-outfit flex justify-between items-center">
+            
+          <h1 className="text-greyscale_title text-[20px]
+            sm:text-[28px] lg:-[32px] font-extrabold  ">
+              Project
+            <span className="text-primary">
+              Genius</span>
+          </h1>
+
+          <div className="flex gap-[32px] items-center">
+          <ul className="hidden md:flex text-greyscale_title py-[24px] gap-[32px]
+            font-medium">
+            <li>Events</li>
+            <li>Partners & Sponsors</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+          </ul>
+            <Button>
+              Login
+            </Button>
+            <div>
+              <Image src={Menu}
+                className="md:hidden"
+                alt="kkk"/>
+            </div>
+          </div>
+        </header>
         {children}
       </body>
     </html>
