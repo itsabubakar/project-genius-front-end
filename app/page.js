@@ -2,9 +2,11 @@ import Image from "next/image";
 import hero from "../public/svg/Hero image (1).svg"
 import Link from "next/link";
 import infoData from "./data/inforcard"
+import detailData from "./data/detailsData"
 
 import Headings from "./components/landing_page/header.js"
 import InfoCard from "./components/landing_page/infoCard.js"
+import Details from "./components/landing_page/details.js"
 
 export default function Home() {
     return (
@@ -48,7 +50,6 @@ export default function Home() {
                 />
 
                 <div className="flex flex-wrap gap-[20px] justify-center pb-5">
-
                     {infoData.map((card, index) =>(
                         <InfoCard
                         key={index}
@@ -56,10 +57,31 @@ export default function Home() {
                             heading={card.heading}
                             subheading={card.subheading}
                             />
-                    ) )}
-                    
+                    ))}
                 </div>
 
+            </section>
+            
+            {/* DETAILS START */}
+            <section className="flex flex-col gap-[56px] items-center text-center">
+                <Headings 
+                    heading="Key Details"
+                    subHeading="The Project Genius contest is exclusively open to undergraduate students within Ahmadu Bello University. This contest aims to bring together a diverse group of students, encouraging collaboration and fostering a spirit of unity and teamwork within the University."
+                />
+
+                <div className="flex flex-col gap-[64px] sm:gap-[64px] justify-center">
+                    {detailData.map((detail, index) => (
+                        <Details 
+                        key={index}
+                        heading={detail.heading}
+                        description={detail.description}
+                        image={detail.image}
+                        classname={index === 1 ? "md:flex-row-reverse" : "md:flex-row"}
+                        />
+                    ))}
+
+
+                </div>
             </section>
 
         </main>
