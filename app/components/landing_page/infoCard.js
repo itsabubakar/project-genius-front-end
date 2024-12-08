@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function InfoCard({icon, heading, subheading}) {
     return (
         <div className="w-[342px] h-[238px] px-[16px] py-[24px]
-            bg-greyscale_surface_subtle rounded-xl shadow-custom-primary
+            bg-primary_subtle rounded-xl shadow-custom-primary
             flex justify-start text-start gap-[12px]">
             <Image alt="info card" src={icon} 
                 className="w-[48px] h-[48px] p-[8px]

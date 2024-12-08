@@ -40,6 +40,7 @@ module.exports = {
 
       boxShadow: {
         'custom-primary': '8px 8px 0px 0px #1D4ED8',
+        'custom-secondary': '8px 8px 0px 0px #B57BFF',
     },
     },
   },
