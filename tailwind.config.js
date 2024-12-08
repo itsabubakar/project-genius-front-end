@@ -37,6 +37,10 @@ module.exports = {
         'md': '1024px',
         'lg': '1280px',
       },
+
+      boxShadow: {
+        'custom-primary': '8px 8px 0px 0px #1D4ED8',
+    },
     },
   },
   plugins: [],

@@ -1,15 +1,17 @@
 import Image from "next/image";
-import Button from "./ui/headerButton";
-import { HeroButton } from "./ui/hero-button";
 import hero from "../public/svg/Hero image (1).svg"
 import Link from "next/link";
+import infoData from "./data/inforcard"
+
+import Headings from "./components/landing_page/header.js"
+import InfoCard from "./components/landing_page/infoCard.js"
 
 export default function Home() {
     return (
         <div className="">
-        <main className="gap-[64px]">
+        <main className="flex flex-col gap-[64px] sm:gap-[96px] md:gap-[112px] lg:gap-[120px]
+                px-[20px] sm:px-[24px] md:px-[32px] lg:px-[80px]">
             <section className=" flex flex-col items-center
-                px-[20px] sm:px-[24px] md:px-[32px] lg:px-[80px]
                 py-[40px] sm:py-[64px] md:py-[80px]
                 w-full text-center">
                 <div className=" sm:w-[720px] flex flex-col gap-[20px]">
@@ -28,14 +30,36 @@ export default function Home() {
                         </Link>
 
                         <Link href={'/'}
-                            className="inter border-primary_dark border-2 text-greyscale_title px-[20px] py-[12px] w-[310px] sm:w-[143px] rounded-full block text-center"
+                            className="inter border-primary_pressed border-2 text-greyscale_title px-[20px] py-[12px] w-[310px] sm:w-[143px] rounded-full block text-center"
                             >
                             Learn More
                         </Link>
 
                     </div>
-                    <Image className="w-full h-[292px] " src={hero} />
+                    <Image className="w-full h-[292px] " alt="Lightbulb" src={hero} />
                 </div>
+            </section>
+
+            <section className="flex flex-col items-center text-center gap-[54px]">
+                
+                <Headings 
+                heading={"Why Project Genius?"}
+                subHeading={"The Project Genius contest emerged from the necessity to address several key areas in education and personal among students"}
+                />
+
+                <div className="flex flex-wrap gap-[20px] justify-center pb-5">
+
+                    {infoData.map((card, index) =>(
+                        <InfoCard
+                        key={index}
+                            icon={card.icon}
+                            heading={card.heading}
+                            subheading={card.subheading}
+                            />
+                    ) )}
+                    
+                </div>
+
             </section>
 
         </main>
