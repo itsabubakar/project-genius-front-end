@@ -12,8 +12,8 @@ export default function DualButtons({classname, text_color}) {
             </Link>
 
             <Link href={'/'}
-                className={`inter border-primary_pressed border-2 px-[20px] py-[12px]
-                    w-[310px] xm:w-[350px] sm:w-[163px] rounded-full block text-center
+                className={`inter border-Primary_border_dark border-2 px-[20px] py-[12px]
+                    w-[310px] xm:w-[350px] sm:w-[163px] rounded-full block text-center text-Primary_border_dark
                     hover:border-primary_hover active:border-primary_pressed active:bg-primary_subtle active:transform active:scale-95 transition duration-500 ${text_color}`}
                 >
                 Learn More

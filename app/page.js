@@ -17,7 +17,7 @@ import DualButtons from "./ui/dualButtons"
 export default function Home() {
     return (
         <div className="">
-        <main className="flex flex-col gap-[64px] sm:gap-[96px] md:gap-[112px] lg:gap-[120px]
+        <main className="flex flex-col gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]
                 ">
             <section className="bg-custom
                 flex flex-col items-center
@@ -89,7 +89,7 @@ export default function Home() {
                 
             <h1 className="text-[28px] text-center md:text-start sm:text-[32px] md:[40px] font-bold">Competition Activities And Timeline</h1>
 
-            <div className="flex flex-col gap-[40px] items-center sm:items-start">
+            <div className="flex flex-col items-center sm:items-start">
                 {timelineData.map((timeline, index) => (
                     <Timeline
                     key={index}
@@ -97,6 +97,7 @@ export default function Home() {
                     end={timeline.end}
                     heading={timeline.heading}
                     description={timeline.description}
+                    isLast={index === timelineData.length - 1}
                 />
                 ))}
             </div>
