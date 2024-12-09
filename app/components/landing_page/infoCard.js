@@ -3,7 +3,8 @@ export default function InfoCard({icon, heading, subheading}) {
     return (
         <div className="w-[342px] h-[238px] px-[16px] py-[24px]
             bg-primary_subtle rounded-xl shadow-custom-primary
-            flex justify-start text-start gap-[12px]">
+            flex justify-start text-start gap-[12px]
+            hover:">
             <Image alt="info card" src={icon} 
                 className="w-[48px] h-[48px] p-[8px]
                 bg-primary rounded-full"

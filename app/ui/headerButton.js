@@ -1,7 +1,11 @@
-export default function Button({children}) {
+import Link from "next/link";
+
+export default function Button({children, classname}) {
     return (
-        <button className="hidden sm:block px-[20px] py-[12px] w-[127px] text-greyscale_surface_subtle bg-primary rounded-full text[18px] ">
+        <Link href="/" className={`text-center px-[20px] py-[12px] w-[127px]
+            text-greyscale_surface_subtle bg-primary rounded-full text[18px]
+            hover:bg-primary_hover  active:bg-primary_pressed transform active:scale-95 transition duration-500 ${classname}`}>
             {children}
-        </button>
+        </Link>
     )
 }

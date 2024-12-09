@@ -1,8 +1,8 @@
-function Heading({heading, subHeading}) {
+function Heading({heading, subHeading, classname}) {
     return(
-        <div className="flex flex-col gap-[16px]">
-            <h1 className="text-[28px] sm:text-[32px] md:[40px] font-bold">{heading}</h1>
-            <p className="text-greyscale_text">{subHeading}</p>
+        <div className="flex flex-col gap-[16px] md:w-[714]">
+            <h1 className={`text-[28px] sm:text-[32px] md:[40px] font-bold ${classname}`}>{heading}</h1>
+            <p className="text-greyscale_text md:w-[718px]">{subHeading}</p>
         </div>
     )
 }

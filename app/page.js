@@ -1,6 +1,5 @@
 import Image from "next/image";
 import hero from "../public/svg/Hero image (1).svg"
-import Link from "next/link";
 
 import infoData from "./data/inforcard"
 import detailData from "./data/detailsData.js"
@@ -13,43 +12,36 @@ import Details from "./components/landing_page/details.js"
 import Timeline from "./components/landing_page/timeline"
 import Heading from "./components/landing_page/header.js";
 import Rules from "./components/landing_page/rules.js"
+import DualButtons from "./ui/dualButtons"
 
 export default function Home() {
     return (
         <div className="">
         <main className="flex flex-col gap-[64px] sm:gap-[96px] md:gap-[112px] lg:gap-[120px]
-                px-[20px] sm:px-[24px] md:px-[32px] lg:px-[80px]">
+                ">
             <section className="bg-custom
                 flex flex-col items-center
                 py-[40px] sm:py-[64px] md:py-[80px]
-                w-full text-center">
-                <div className=" sm:w-[720px] flex flex-col gap-[20px]">
-                    <h1 className="text-[36px] font-extrabold -tracking-[0.72px]">Generating Exciting New  Ideas And Useful Solutions</h1>
-                    <p className="text-greyscale_text text-[16px]">
+                w-full text-center lg:flex-row lg:justify-between lg:gap-[83px]
+                padding-style">
+                <div className="lg:text-start sm:w-[720px] lg:w-[620px] flex flex-col gap-[20px]">
+                    <h1 className="text-[36px] md:text-[44px] font-extrabold -tracking-[0.72px]">Generating Exciting New  Ideas And Useful Solutions</h1>
+                    <p className="lg:text-start text-greyscale_text text-[16px]">
                     GENIUS 2.0 aims to foster a generation of problem solvers who address local challenges with sustainable and innovative solutions
                     </p>
 
-                    <div className="flex flex-col sm:flex-row sm:justify-center gap-3 items-center">
-                        
                         {/* DEBT CODES BELOW: was getting some error trying to make the component dynamic. To look further into it */}
-                        <Link href={'/'}
-                            className="inter bg-primary text-greyscale_surface_subtle px-[20px] py-[12px] w-[310px] sm:w-[143px] rounded-full block text-center"
-                            >
-                            Apply Now
-                        </Link>
+                        <DualButtons 
+                        classname="flex flex-col sm:flex-row sm:justify-center lg:justify-start
+                            items-center"/>
 
-                        <Link href={'/'}
-                            className="inter border-primary_pressed border-2 text-greyscale_title px-[20px] py-[12px] w-[310px] sm:w-[143px] rounded-full block text-center"
-                            >
-                            Learn More
-                        </Link>
-
-                    </div>
-                    <Image className="w-full h-[292px] " alt="Lightbulb" src={hero} />
                 </div>
+                
+                <Image className="w-full lg:w-[520px] h-[292px] " alt="Lightbulb" src={hero} />
             </section>
 
-            <section className="flex flex-col items-center text-center gap-[54px]">
+            <section className="flex flex-col items-center text-center gap-[54px]
+            padding-style">
                 
                 <Headings 
                 heading={"Why Project Genius?"}
@@ -92,11 +84,12 @@ export default function Home() {
             </section>
 
             {/* COMPETITION TIMELINE START */}
-            <section className="flex flex-col gap-[56px] items-center text-center">
+            <section className="flex flex-col gap-[56px] text-center
+                padding-style">
                 
             <h1 className="text-[28px] text-center md:text-start sm:text-[32px] md:[40px] font-bold">Competition Activities And Timeline</h1>
 
-            <div className="flex flex-col gap-[40px] items-center">
+            <div className="flex flex-col gap-[40px] items-center sm:items-start">
                 {timelineData.map((timeline, index) => (
                     <Timeline
                     key={index}
@@ -110,7 +103,7 @@ export default function Home() {
             </section>
 
             {/* RULES SECTION */}
-            <section className="flex flex-col gap-[56px] text-center items-center">
+            <section className="padding-style flex flex-col gap-[56px] text-center items-center">
                 <Heading 
                     heading="Rules And Guidelines"
                     subHeading="To ensure a fair and productive contest, participants must adhere to the following rules and guidelines. These rules are designed to maintain the integrity of the competition and to provide a clear framework within which participants can operate"
