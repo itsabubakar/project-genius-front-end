@@ -22,9 +22,8 @@ module.exports = {
         greyscale_title: "#0D0E11", // black
         greyscale_text: "#8990A6", // for icons and placeholders
         greyscale_surface_subtle: "#F3F4F6",
-        greyscale_subtitle: "#4F5569" // lighter shade of gray
-
-        ,
+        greyscale_subtitle: "#4F5569", // lighter shade of gray
+        greyscale_border: "#A2A7B9",
         error_dark: "#A70C0C", // red
         error_subtle: "#FEECEC",
 

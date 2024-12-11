@@ -15,11 +15,9 @@ import Rules from "./components/landing_page/rules.js";
 import DualButtons from "./ui/dualButtons";
 
 export default function Home() {
-  return (
-    <div className="">
-      <main
-        className="flex flex-col gap-[64px] sm:gap-[96px] md:gap-[112px] lg:gap-[120px]
-                ">
+    return (
+        <div className="">
+        <main className="flex flex-col gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]">
         <section
           className="bg-custom
                 flex flex-col items-center
@@ -95,41 +93,44 @@ export default function Home() {
         <section
           className="flex flex-col gap-[56px] text-center
                 padding-style">
-          <h1 className="text-[28px] text-center md:text-start sm:text-[32px] md:[40px] font-bold">
-            Competition Activities And Timeline
-          </h1>
+                
+            <h1 className="text-[28px] text-center md:text-start sm:text-[32px] md:[40px] font-bold">Competition Activities And Timeline</h1>
 
-          <div className="flex flex-col gap-[40px] items-center sm:items-start">
-            {timelineData.map((timeline, index) => (
-              <Timeline
-                key={index}
-                start={timeline.start}
-                end={timeline.end}
-                heading={timeline.heading}
-                description={timeline.description}
-              />
-            ))}
-          </div>
-        </section>
+            <div className="flex flex-col items-center sm:items-start">
+                {timelineData.map((timeline, index) => (
+                    <Timeline
+                    key={index}
+                    start={timeline.start}
+                    end={timeline.end}
+                    heading={timeline.heading}
+                    description={timeline.description}
+                    isLast={index === timelineData.length - 1}
+                />
+                ))}
+            </div>
+            </section>
 
-        {/* RULES SECTION */}
-        <section className="padding-style flex flex-col gap-[56px] text-center items-center">
-          <Heading
-            heading="Rules And Guidelines"
-            subHeading="To ensure a fair and productive contest, participants must adhere to the following rules and guidelines. These rules are designed to maintain the integrity of the competition and to provide a clear framework within which participants can operate"
-          />
+            {/* RULES SECTION */}
+            <section className="padding-style flex flex-col gap-[56px] text-center items-center">
+                <Heading 
+                    heading="Rules And Guidelines"
+                    subHeading="To ensure a fair and productive contest, participants must adhere to the following rules and guidelines. These rules are designed to maintain the integrity of the competition and to provide a clear framework within which participants can operate"
+                />
 
-          <div className="flex flex-wrap gap-[24px] justify-center ">
-            {regulationData.map((rule, index) => (
-              <Rules
-                key={index}
-                heading={rule.heading}
-                details={rule.details}
-              />
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
-  );
+                <div className="flex flex-wrap gap-[24px] justify-center ">
+                    {regulationData.map((rule, index) => (
+                        <Rules 
+                        key={index}
+                        heading={rule.heading}
+                        details={rule.details}
+                        />
+                    ))}
+                </div>
+                
+
+            </section>
+
+        </main>
+        </div>
+    );
 }
