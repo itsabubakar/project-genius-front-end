@@ -23,7 +23,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className="w-[100%] flex flex-col lg:flex-row  flex-wrap items-center justify-around px-2 md:px-12 pb-16 mt-28">
+      <div className="w-[100%] flex flex-col lg:flex-row  flex-wrap items-center justify-around px-5 md:px-12 pb-16 mt-28">
         <div className="first w-[100%] md:w-[80%] lg:w-[45%]">
           <div className="mb-4">
             <h1 className="text-3xl font-semibold mb-4">
