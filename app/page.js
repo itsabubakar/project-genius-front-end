@@ -11,45 +11,42 @@ import InfoCard from "./components/landing_page/infoCard.js";
 import Details from "./components/landing_page/details.js";
 import Timeline from "./components/landing_page/timeline";
 import Heading from "./components/landing_page/header.js";
-import Rules from "./components/landing_page/rules.js";
-import DualButtons from "./ui/dualButtons";
+import Rules from "./components/landing_page/rules.js"
+import ButtonBlue from "./ui/buttonBlue";
+import ButtonGlass from "./ui/buttonGlass";
+import Link from "next/link";
 
 export default function Home() {
     return (
         <div className="">
-        <main className="flex flex-col gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]">
+        <main className="flex flex-col items-center gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]">
         <section
           className="bg-custom
                 flex flex-col items-center
                 py-[40px] sm:py-[64px] md:py-[80px]
                 w-full text-center lg:flex-row lg:justify-between lg:gap-[83px]
                 padding-style">
-          <div className="lg:text-start sm:w-[720px] lg:w-[620px] flex flex-col gap-[20px]">
-            <h1 className="text-[36px] md:text-[44px] font-extrabold -tracking-[0.72px]">
-              Generating Exciting New Ideas And Useful Solutions
-            </h1>
-            <p className="lg:text-start text-greyscale_text text-[16px]">
-              GENIUS 2.0 aims to foster a generation of problem solvers who
-              address local challenges with sustainable and innovative solutions
-            </p>
+                <div className="lg:text-start items-center lg:items-start sm:w-[720px] lg:w-[620px] flex flex-col gap-[20px]">
+                    <h1 className="text-[36px] md:text-[44px] font-extrabold -tracking-[0.72px]">Generating Exciting New  Ideas And Useful Solutions</h1>
+                    <p className="lg:text-start text-greyscale_text text-[16px]">
+                    GENIUS 2.0 aims to foster a generation of problem solvers who address local challenges with sustainable and innovative solutions
+                    </p>
 
-            {/* DEBT CODES BELOW: was getting some error trying to make the component dynamic. To look further into it */}
-            <DualButtons
-              classname="flex flex-col sm:flex-row sm:justify-center lg:justify-start
-              items-center"
-            />
-          </div>
-
-          <Image
-            className="w-full lg:w-[520px] h-[292px] "
-            alt="Lightbulb"
-            src={hero}
-          />
-        </section>
+                        <div className="flex flex-col gap-2 lg:flex-row">
+                          <Link href={"auth/create-profile"}>
+                            
+                            <ButtonBlue>Apply Now</ButtonBlue>
+                          </Link>
+                            <ButtonGlass>Learn More</ButtonGlass>
+                        </div>
+                </div>
+                
+                <Image className="w-full lg:w-[520px] h-[292px] " alt="Lightbulb" src={hero} />
+            </section>
 
         <section
           className="flex flex-col items-center text-center gap-[54px]
-            padding-style">
+            padding-style ma=x-auto">
           <Headings
             heading={"Why Project Genius?"}
             subHeading={
@@ -57,7 +54,7 @@ export default function Home() {
             }
           />
 
-          <div className="flex flex-wrap gap-[20px] justify-center pb-5">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-5 pb-5 w-[1120px] max-w-[1200px]">
             {infoData.map((card, index) => (
               <InfoCard
                 key={index}
@@ -70,7 +67,8 @@ export default function Home() {
         </section>
 
         {/* DETAILS START */}
-        <section className="flex flex-col gap-[56px] items-center text-center">
+        <section className="flex flex-col items-center text-center gap-[54px]
+            padding-style">
           <Headings
             heading="Key Details"
             subHeading="The Project Genius contest is exclusively open to undergraduate students within Ahmadu Bello University. This contest aims to bring together a diverse group of students, encouraging collaboration and fostering a spirit of unity and teamwork within the University."
@@ -91,8 +89,8 @@ export default function Home() {
 
         {/* COMPETITION TIMELINE START */}
         <section
-          className="flex flex-col gap-[56px] text-center
-                padding-style">
+          className="flex flex-col items-center text-center gap-[54px]
+            padding-style">
                 
             <h1 className="text-[28px] text-center md:text-start sm:text-[32px] md:[40px] font-bold">Competition Activities And Timeline</h1>
 
