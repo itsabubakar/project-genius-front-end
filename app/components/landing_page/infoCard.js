@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function InfoCard({icon, heading, subheading}) {
     return (
-        <div className="xs:w-[338px] h-[300px] px-[16px] py-[24px]
+        <div className="w-[342px] md:w-[360px] h-[238px] px-[16px] py-[24px]
             bg-primary_subtle rounded-xl shadow-custom-primary
             flex justify-start text-start gap-[12px]
             hover:">
