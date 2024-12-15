@@ -1,6 +1,6 @@
 
 import innovation from "../../public/icons/innovation.png"
-import bow from "../../public/icons/bow_16329120 copy 1.png"
+import bow from "../../public/icons/bow_16329120.png"
 import scope from "../../public/icons/scope.png"
 import cloud from "../../public/icons/clouds.png"
 import fire from "../../public/icons/gear.png"
