@@ -4,7 +4,7 @@ const InputField = ({ label, type = "text", placeholder, className = "" }) => (
         <input
             type={type}
             placeholder={placeholder}
-            className={`sm:w-[340px] md:w-[360px] px-4 py-3 rounded-xl bg-greyscale_surface_subtle focus:outline-primary_hover ${className}`}
+            className={`inter sm:w-[340px] md:w-[360px] px-4 py-3 rounded-xl bg-greyscale_surface_subtle focus:outline-primary_hover ${className}`}
         />
     </div>
 );

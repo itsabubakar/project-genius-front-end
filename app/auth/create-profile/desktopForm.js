@@ -1,7 +1,11 @@
+import Image from "next/image";
+
 import InputField from "./inputField";
 import SelectField from "./selectedField.js";
 import ButtonBlue from "../../ui/buttonBlue";
 import ButtonGlass from "../../ui/buttonGlass";
+
+import HidePassword from "../../../public/icons/password_eye.svg"
 
 const DesktopForm = ({ previousSection, handleSubmit }) => (
     <div className="hidden md:flex flex-col gap-4">
@@ -22,12 +26,22 @@ const DesktopForm = ({ previousSection, handleSubmit }) => (
                 label="Select your Team Designation"
                 options={["Team Leader", "Team Member"]}
             />
-            <InputField label="Password" type="password" placeholder="Enter your password" />
+            <div className="flex justify-center">
+                
+                <InputField label="Password" type="password" placeholder="Enter your password" />
+                <Image src={HidePassword} alt="Search" className=" h-fit relative top-12 right-8" />
+
+            </div>
+            <div className="flex justify-center">
+                
             <InputField
                 label="Confirm Password"
                 type="password"
                 placeholder="Confirm your password"
             />
+            <Image src={HidePassword} alt="Search" className=" h-fit relative top-12 right-8" />
+
+            </div>
         </section>
 
         <div className="flex gap-2">

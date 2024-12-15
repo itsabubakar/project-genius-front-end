@@ -31,7 +31,7 @@ export default function Login(){
                 <div className="flex flex-col gap-4 sm:flex-row justify-center items-center ">
                     
                     <ButtonBlue
-                    classname={"disabled:bg-greyscale_subtitle md:w-[50%]"}>
+                    classname={"active:bg-greyscale_subtitle md:w-[50%]"}>
                         Login
                     </ButtonBlue>
                     <ButtonGlass classname="md:w-[50%]">
