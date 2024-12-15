@@ -1,6 +1,6 @@
 export default function Timeline({ start, end, heading, description, isLast }) {
     return (
-        <div className="flex flex-col sm:flex-row gap-[16px] sm:gap[32px] text-center items-center">
+        <div className="flex flex-col sm:flex-row gap-[16px] sm:gap[32px] md:gap-16 lg:gap-[72px] text-center">
             <div className="flex flex-col items-center">
                 <div
                     className="relative w-[100px] min-h-[88px] flex flex-col items-center justify-center
@@ -20,7 +20,7 @@ export default function Timeline({ start, end, heading, description, isLast }) {
             </div>
             <div className="flex flex-col gap-[8px] sm:text-start">
                 <h4 className="font-bold text-xl">{heading}</h4>
-                <p className="inter">{description}</p>
+                <p className="inter sm:w-[551px] md:w-[635px] lg:w-[853px] xl:w-[1000px]">{description}</p>
             </div>
         </div>
     );
