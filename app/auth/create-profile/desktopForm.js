@@ -1,13 +1,20 @@
+"use client"
 import Image from "next/image";
 
 import InputField from "./inputField";
 import SelectField from "./selectedField.js";
 import ButtonBlue from "../../ui/buttonBlue";
-import ButtonGlass from "../../ui/buttonGlass";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-import HidePassword from "../../../public/icons/password_eye.svg"
-
-const DesktopForm = ({ previousSection, handleSubmit }) => (
+const DesktopForm = ({ handleSubmit }) => {
+    const router = useRouter();
+/*
+    const handleNavigation = () => {
+        router.push('/auth')
+        console.log("working");
+    };*/ // code not functioning for page navigation
+return (
     <div className="hidden md:flex flex-col gap-4">
         <section className="flex flex-col gap-4 md:grid grid-cols-2">
             <InputField label="First name" placeholder="Enter your first name" />
@@ -28,8 +35,9 @@ const DesktopForm = ({ previousSection, handleSubmit }) => (
             />
             <div className="flex justify-center">
                 
-                <InputField label="Password" type="password" placeholder="Enter your password" />
-                <Image src={HidePassword} alt="Search" className=" h-fit relative top-12 right-8" />
+                <InputField label="Password"
+                    type="password"
+                    placeholder="Enter your password" />
 
             </div>
             <div className="flex justify-center">
@@ -39,7 +47,6 @@ const DesktopForm = ({ previousSection, handleSubmit }) => (
                 type="password"
                 placeholder="Confirm your password"
             />
-            <Image src={HidePassword} alt="Search" className=" h-fit relative top-12 right-8" />
 
             </div>
         </section>
@@ -49,11 +56,18 @@ const DesktopForm = ({ previousSection, handleSubmit }) => (
                 Create account
             </ButtonBlue>
             
-            <ButtonGlass onClick={previousSection} classname={"md:w-[50%]"}>
+            <Link
+                href={"/auth"}
+                className={`inter text-Primary_border_dark border-primary_pressed border-2 px-[20px] py-[12px]
+                    w-[330px] xm:w-[350px] sm:w-[163px] md:w-[50%] rounded-full block text-center
+                    hover:text-primary_hover hover:border-primary_hover active:border-primary_pressed active:bg-primary_subtle active:transform active:scale-95 transition duration-500`}
+                
+                >
                 Login
-            </ButtonGlass>
+            </Link>
         </div>
     </div>
 );
+};
 
 export default DesktopForm;
