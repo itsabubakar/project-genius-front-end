@@ -104,11 +104,11 @@ export default function RootLayout({ children }) {
           <div className="flex flex-col gap-8 md:items-center lg:flex-row">
             <h2 className="text-3xl font-[800] sm:text-[44px] lg:text-[52px]">Turn Your Ideas into Reality</h2>
             
-            <div className="flex flex-col gap-2 sm:flex-row mx-auto sm:mx-0">
+            <div className="flex flex-col gap-2 sm:flex-row-reverse mx-auto sm:mx-auto">
                 <Link href={"auth/create-profile"}>
                   <ButtonBlue>Apply Now</ButtonBlue>
                 </Link>
-                <ButtonGlass>Learn More</ButtonGlass>
+                <ButtonGlass classname={"border-greyscale_surface_subtle text-greyscale_surface_subtle"}>Learn More</ButtonGlass>
             </div>
 
           </div>

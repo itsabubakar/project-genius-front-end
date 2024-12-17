@@ -6,7 +6,6 @@ import ButtonGlass from "../../ui/buttonGlass";
 
 import Next from "../../../public/icons/arrow_next.svg"
 import Previous from "../../../public/icons/arrow_back.svg"
-import HidePassword from "../../../public/icons/password_eye.svg"
 const MobileForm = ({
     currentSection,
     nextSection,
@@ -47,8 +46,6 @@ const MobileForm = ({
                         type="password"
                         placeholder="Enter your password"
                     />
-                    <Image src={HidePassword} alt="Search" className="ml-auto relative bottom-9 right-4" />
-
                 </div>
                 <div>
                     <InputField
@@ -56,8 +53,6 @@ const MobileForm = ({
                         type="password"
                         placeholder="Enter your password"
                     />
-                    <Image src={HidePassword} alt="Search" className="ml-auto relative bottom-9 right-4" />
-
                 </div>
                 
                 <div className="flex gap-4">

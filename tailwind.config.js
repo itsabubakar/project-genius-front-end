@@ -28,7 +28,7 @@ module.exports = {
         error_subtle: "#FEECEC",
 
         success_dark: "#106A3D", //green
-        success_subtle: "#106A3D"
+        success_subtle: "#E4FBF0"
       },
       screens: {
         'xs': '390px',
