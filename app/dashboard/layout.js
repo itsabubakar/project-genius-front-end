@@ -10,8 +10,8 @@ import photo from "../../public/profile_image.png";
 export default function Layout({ children }) {
   return (
     <div className="flex min-h-screen py-2 bg-greyscale_surface_subtle">
-      {/* Sidebar  *** to add padding eventually */}
-      <aside className="inter p-4 gap-6 w-full font-medium flex flex-col h-screen md:w-[260px] lg:w-[300px] bg-white">
+      {/* Sidebar  *** side bar is kept hidden for the meantime */}
+      <aside className="hidden inter p-4 gap-6 w-full fixed font-medium flex-col h-screen md:w-[260px] lg:w-[300px] bg-white">
         <Logo
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
