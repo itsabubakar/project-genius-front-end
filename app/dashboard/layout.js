@@ -7,6 +7,7 @@ import logout from "../../public/icons/logout.svg";
 import Image from "next/image";
 import Logo from "../ui/logo";
 import photo from "../../public/profile_image.png";
+import UserCard from "./components/userCard";
 export default function Layout({ children }) {
   return (
     <div className="flex min-h-screen py-2 bg-greyscale_surface_subtle">
@@ -16,13 +17,11 @@ export default function Layout({ children }) {
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
 
-        <div className="hidden md:flex px-4 py-3 gap-3 items-center border rounded-xl">
-          <Image src={photo} />
-          <div className=" gap-1">
-            <p className="text-lg font-medium">Umar</p>
-            <p className="text-sm font-normal text-greyscale_subtitle">Team Leader</p>
-          </div>
-        </div>
+        <UserCard 
+          photo={photo}
+          name={"Umar"}
+          role={"Team Leader"}
+        />
 
         <nav className="flex flex-col w-full gap-8">
           <ul className="flex w-full flex-col  gap-8">
