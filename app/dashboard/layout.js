@@ -6,17 +6,22 @@ import help from "../../public/icons/help.svg";
 import logout from "../../public/icons/logout.svg";
 import Image from "next/image";
 import Logo from "../ui/logo";
+import photo from "../../public/profile_image.png";
 export default function Layout({ children }) {
   return (
-    <div className="flex min-h-screen py-2">
+    <div className="flex min-h-screen py-2 bg-greyscale_surface_subtle">
       {/* Sidebar  *** to add padding eventually */}
-      <aside className="inter p-4 gap-6 w-full font-medium fixed flex flex-col md:w-[260px] lg:w-[300px] bg-white">
+      <aside className="inter p-4 gap-6 w-full font-medium flex flex-col h-screen md:w-[260px] lg:w-[300px] bg-white">
         <Logo
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
 
-        <div className="px-4 py-3 flex justify-center items-center">
-s
+        <div className="hidden md:flex px-4 py-3 gap-3 items-center border rounded-xl">
+          <Image src={photo} />
+          <div className=" gap-1">
+            <p className="text-lg font-medium">Umar</p>
+            <p className="text-sm font-normal text-greyscale_subtitle">Team Leader</p>
+          </div>
         </div>
 
         <nav className="flex flex-col w-full gap-8">
