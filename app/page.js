@@ -106,7 +106,7 @@ export default function Home() {
                 />
                 ))}
             </div>
-            </section>
+        </section>
 
             {/* RULES SECTION */}
             <section className="padding-style flex flex-col gap-[56px] text-center items-center">

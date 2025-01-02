@@ -11,7 +11,7 @@ import UserCard from "./components/userCard";
 const Layout = ({ children }) =>
     <div className="flex px-6 min-h-screen py-2">
       {/* Sidebar  *** side bar is kept hidden for the meantime */}
-      <aside className=" inter px-4 lg:px-5 py-8 flex flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
+      <aside className=" inter px-4 lg:px-5 hidden py-8 flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
         <Logo
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
