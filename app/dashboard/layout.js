@@ -8,11 +8,10 @@ import Image from "next/image";
 import Logo from "../ui/logo";
 import photo from "../../public/profile_image.png";
 import UserCard from "./components/userCard";
-export default function Layout({ children }) {
-  return (
-    <div className="flex min-h-screen py-2 bg-greyscale_surface_subtle">
+const Layout = ({ children }) =>
+    <div className="flex px-6 min-h-screen py-2">
       {/* Sidebar  *** side bar is kept hidden for the meantime */}
-      <aside className=" inter p-4 flex flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
+      <aside className=" inter px-4 lg:px-5 py-8 flex flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
         <Logo
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
@@ -23,6 +22,7 @@ export default function Layout({ children }) {
           photo={photo}
           name={"Umar"}
           role={"Team Leader"}
+          classname={"w-full"}
         />
 
         <nav className="flex flex-col w-full gap-8">
@@ -57,10 +57,9 @@ export default function Layout({ children }) {
       <div className="flex-1 flex flex-col">
 
         {/* Content */}
-        <main className="flex-1 p-4">
+        <main className="flex-1">
           {children}
         </main>
       </div>
     </div>
-  );
-}
+export default Layout;
