@@ -54,12 +54,17 @@ const Dashboard = () =>
 
             <section className="p-4 flex flex-col gap-6 w-full shadow-lg">
                 <h1 className="text-2xl font-medium text-greyscale_title">Competition Progress</h1>
-                {progressData.map((progress, index) => (
-                    <Progress 
-                        key={progress.id}
-                        title={progress.title}
-                        description={progress.description}/>
-                ))}
+                <div className="flex flex-col gap-1">
+                    {progressData.map((progress, index) => (
+                        <Progress 
+                            id={progress.id}
+                            key={progress.id}
+                            title={progress.title}
+                            description={progress.description}
+                            deadlineDate={progress.date}
+                        />
+                    ))}
+                </div>
 
 
             </section>

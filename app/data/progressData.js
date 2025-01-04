@@ -3,25 +3,25 @@ const progressData = [
       id: 1,
       title: "Registration Phase",
       description: "In this phase, contestants register their teams.",
-      isActive: true,
+      date: "2025-01-01"
     },
     {
       id: 2,
       title: "Prototype Development Phase",
       description: "Step description",
-      isActive: false,
+      date: "2025-01-04"
     },
     {
       id: 3,
       title: "Grand Finale",
       description: "Step description",
-      isActive: false,
+      date: "2025-01-06"
     },
     {
       id: 4,
       title: "Post Event Phase",
       description: "Step description",
-      isActive: false,
+      date: "2025-01-08"
     },
   ];
 
