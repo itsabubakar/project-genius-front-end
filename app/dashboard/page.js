@@ -62,6 +62,7 @@ const Dashboard = () =>
                             title={progress.title}
                             description={progress.description}
                             deadlineDate={progress.date}
+                            isLast={index === progressData.length - 1}
                         />
                     ))}
                 </div>

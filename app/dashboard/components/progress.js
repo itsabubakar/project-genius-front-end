@@ -4,7 +4,7 @@ import tick from "../../../public/icons/tick.svg"
 import { set } from "zod"
 import Image from "next/image"
 
-function Progress({id, title, description, deadlineDate, classname}) {
+function Progress({id, title, description, deadlineDate, isLast, classname}) {
     const [deadline, setDeadline] = useState(true)
 
     useEffect(() => { 
@@ -22,13 +22,16 @@ function Progress({id, title, description, deadlineDate, classname}) {
                     </div>
 
                     ) : (
-                        <div>{id}</div>
+                        <div className="rounded-full w-5 h-5 flex justify-center items-center text-greyscale_border bg-greyscale_surface_subtle border-2 border-greyscale_border">{id}</div>
                     )
                 }
                 
-                <div className={`w-[2px] h-full bg-primary`}>
+                {!isLast &&
+                
+                    <div className={`w-[2px] h-full ${deadline ? 'bg-primary' : 'bg-greyscale_border' }`}>
 
                 </div>
+                }
             </div>
 
             <div>
