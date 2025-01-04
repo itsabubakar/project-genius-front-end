@@ -3,6 +3,8 @@ import UserCard from "./components/userCard";
 import photo from "../../public/profile_image.png";
 import Progress from "./components/progress";
 import progressData from "../data/progressData";
+
+const currentStep = 1;
 const Dashboard = () =>
         <div className="px-3 py-6 md:px-6 lg:p-8 bg-greyscale_background_light flex flex-col gap-6 lg:gap-8">
             <div className="flex flex-col gap-1">
@@ -52,7 +54,7 @@ const Dashboard = () =>
                 </div>
             </section>
 
-            <section className="p-4 flex flex-col gap-6 w-full shadow-lg">
+            <section className="p-8 rounded-2xl flex flex-col gap-6 w-full shadow-lg">
                 <h1 className="text-2xl font-medium text-greyscale_title">Competition Progress</h1>
                 <div className="flex flex-col gap-1">
                     {progressData.map((progress, index) => (
@@ -63,6 +65,7 @@ const Dashboard = () =>
                             description={progress.description}
                             active={progress.date}
                             isLast={index === progressData.length - 1}
+                            isNext={index === currentStep + 1}
                         />
                     ))}
                 </div>

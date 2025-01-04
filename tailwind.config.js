@@ -13,6 +13,7 @@ module.exports = {
         primary_pressed: "#123082",
         Primary_border_dark: "#123082",
         primary_subtle: "#E9EEFC",
+        primary_light: "#7494EC",
         primary_dark: "#06102D",
         primary_label_dark: '#06102D',
 
