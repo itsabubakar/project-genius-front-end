@@ -4,19 +4,19 @@ import tick from "../../../public/icons/tick.svg"
 import { set } from "zod"
 import Image from "next/image"
 
-function Progress({id, title, description, deadlineDate, isLast, classname}) {
-    const [deadline, setDeadline] = useState(true)
+function Progress({id, title, description, active, isLast, classname}) {
+    const [schedule, setDeadline] = useState(true)
 
     useEffect(() => { 
         const currentDate = new Date()
-        const deadline = new Date(deadlineDate)
-        setDeadline(currentDate > deadline)
-    },[deadlineDate])
+        const scheduled = new Date(active)
+        setDeadline(currentDate > scheduled)
+    },[active])
     return (
         <div className="flex gap-4 inter h-[87px]">
             <div className="flex flex-col items-center">
 
-                {deadline ? (
+                {schedule ? (
                     <div className="bg-primary rounded-full">
                         <Image src={tick} alt="tick" />
                     </div>
@@ -27,17 +27,13 @@ function Progress({id, title, description, deadlineDate, isLast, classname}) {
                 }
                 
                 {!isLast &&
-                
-                    <div className={`w-[2px] h-full ${deadline ? 'bg-primary' : 'bg-greyscale_border' }`}>
-
-                </div>
+                    <div className={`w-[2px] h-full ${schedule ? 'bg-primary' : 'bg-greyscale_border' }`}></div>
                 }
             </div>
 
             <div>
                 <h1 className="text-lg font-medium">{title}</h1>
                 <p className="text-greyscale_text">{description}</p>
-                {deadline && <div className="flex gap-2 items-center">Passed</div>}
             </div>
         </div>
     )

@@ -61,7 +61,7 @@ const Dashboard = () =>
                             key={progress.id}
                             title={progress.title}
                             description={progress.description}
-                            deadlineDate={progress.date}
+                            active={progress.date}
                             isLast={index === progressData.length - 1}
                         />
                     ))}
