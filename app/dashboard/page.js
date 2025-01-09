@@ -6,7 +6,7 @@ import progressData from "../data/progressData";
 
 const currentStep = 1;
 const Dashboard = () =>
-        <div className="px-3 py-6 md:px-6 lg:p-8 bg-greyscale_background_light flex flex-col gap-6 lg:gap-8">
+        <div className="flex flex-col gap-6 lg:gap-8">
             <div className="flex flex-col gap-1">
             <h1 className="text-[32px] md:text-[40px] lg:text-[44px] font-bold text-greyscale_title">Welcome back, Umar!</h1>
             <p className="text-greyscale_subtitle">You’re doing great keep innovating</p>
