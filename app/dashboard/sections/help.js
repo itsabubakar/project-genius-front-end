@@ -1,4 +1,5 @@
 import Accordion from "../components/accordion"
+import accordionData from "@/app/data/accordionData"
 export default function Help() {
     return(
         <section className="flex flex-col px-3 py-6 gap-8">
@@ -10,7 +11,13 @@ export default function Help() {
 
             </div>
 
-            <Accordion/>
+            {accordionData.map((data, index) =>(
+                <Accordion 
+                    key={data.id}
+                    question={data.question}
+                    response={data.response}
+                />
+            ))}
 
             
         </section>
