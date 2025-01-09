@@ -28,9 +28,9 @@ function Layout ({ children }) {
   }
   return (
     
-    <div className="flex px-6 min-h-screen py-2">
+    <div className="flex gap-4 px:4 md:px-6 min-h-screen py-2">
       {/* Sidebar  *** side bar is kept hidden for the meantime */}
-      <aside className=" inter px-4 lg:px-5 flex py-8 flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
+      <aside className=" inter px-4 lg:px-5 hidden md:flex py-8 flex-col gap-6 w-full md:relative fixed font-medium h-screen md:w-[260px] lg:w-[300px] bg-white">
         <Logo
           classname={"hidden md:flex text-2xl font-extrabold cursor-pointer"}
         />
@@ -72,7 +72,7 @@ function Layout ({ children }) {
       <div className="flex-1 flex flex-col">
 
         {/* Content */}
-        <main className="flex-1 px-3 py-6 md:px-6 lg:p-8 bg-greyscale_background_light">
+        <main className="flex-1 px-4 py-6 md:px-6 lg:p-8 bg-greyscale_background_light">
           {overview && (
             
           [children]
