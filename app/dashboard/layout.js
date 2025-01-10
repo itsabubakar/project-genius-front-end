@@ -14,18 +14,15 @@ import Help from "./sections/help";
 
 function Layout ({ children }) {
 
-  const [overview, setOverview] = useState(true)
-  const [helps, setHelp] = useState(false)
+  const [activeTab, setActiveTab] = useState("overview")
 
-  const handleOverview = () => {
-    setHelp(false)
-    setOverview(true)
+  const handleTab = (tab) => {
+    setActiveTab(tab)
   }
-  const handleHelp = () => {
-    
-    setHelp(true)
-    setOverview(false)
+  const isActive = (tab) => {
+    return activeTab === tab ? "bg-primary text-white" : ""
   }
+
   return (
     
     <div className="flex gap-4 px:4 md:px-6 min-h-screen py-2">
@@ -46,7 +43,7 @@ function Layout ({ children }) {
 
         <nav className="flex flex-col w-full gap-8">
           <ul className="flex w-full flex-col  gap-8">
-              <li onClick={handleOverview} className={` ${overview ? 'bg-primary text-white':''} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
+              <li onClick={() => handleTab("overview")} className={` h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
                 <Image src={Overview} /> Overview
               </li>
             <Link href="/dashboard">
@@ -59,7 +56,7 @@ function Layout ({ children }) {
                 <Image src={profile} /> Update profile
               </li>
             </Link>
-              <li onClick={handleHelp} className={` ${helps ? 'bg-primary text-white':''} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
+              <li onClick={() => handleTab("help")} className={` h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
                 <Image src={help}/>Find help
               </li>
           </ul>
@@ -73,14 +70,9 @@ function Layout ({ children }) {
 
         {/* Content */}
         <main className="flex-1 px-4 py-6 md:px-6 lg:p-8 bg-greyscale_background_light">
-          {overview && (
-            
-          [children]
-          )}
+          {activeTab === "overview" && children}
 
-          {helps && (
-            <Help />
-          )}
+          {activeTab === "help" && <Help />}
         </main>
       </div>
     </div>
