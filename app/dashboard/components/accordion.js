@@ -2,7 +2,7 @@ import { useState } from "react"
 import Image from "next/image"
 import minus from "../../../public/icons/minus.svg"
 import plus from "../../../public/icons/plus.svg"
-export default function Accordion({question, response}) {
+export default function Accordion({question, answer}) {
     const [openAccordion, setOpenAccordion] = useState(false)
 
     const handleAccordion = () => {
@@ -24,7 +24,7 @@ export default function Accordion({question, response}) {
                 
 
             <h4 className="flex flex-col gap-2">{question}</h4>
-            <p className={` ${openAccordion ? "block" : "hidden"} text-black mt-2`}>{response}</p>
+            <p className={` ${openAccordion ? "block" : "hidden"} text-black mt-2`}>{answer}</p>
 
 
             </div>
