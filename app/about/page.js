@@ -2,7 +2,11 @@ import MainWrapper from "../main";
 import Image from "next/image";
 import hands from "../../public/hands.png"
 import innovate from "../../public/innovate.png"
+import umar from "../../public/umar.png"
+import mujeeb from "../../public/mujeeb.png"
+
 import spark from "../../public/spark.png"
+import TeamComponent from "./memberComponent";
 const { default: Heading } = require("../components/landing_page/header");
 
 function About() {
@@ -52,13 +56,43 @@ function About() {
                 <section className="flex flex-col gap-20">
                     <h2 className="font-bold text-4xl">Meet Our Team</h2>
 
-                    <article className="flex flex-col p-8 gap-8">
-                        <div className="w-60 h-60 bg-primary"></div>
-                        <div>
-                            <h4 className="text-2xl font-bold">Hamid Usman</h4>
-                            <p className="inter">Fromtend Developer</p>
-                        </div>
-                    </article>
+                    <div className="flex flex-wrap justify-center w-fit">
+                        <TeamComponent 
+                        src={umar}
+                        name={"Umar Mohammed"}
+                        title={"Product Designer"}
+                        />
+                        <TeamComponent 
+                        src={mujeeb}
+                        name={"Mohammad Abdulmujeeb"}
+                        title={"Back-end Developer"}
+                        />
+                        <TeamComponent 
+                        src={umar}
+                        name={"Umar Mohammed"}
+                        title={"Product Designer"}
+                        />
+                        <TeamComponent 
+                        src={mujeeb}
+                        name={"Mohammad Abdulmujeeb"}
+                        title={"Back-end Developer"}
+                        />
+                        <TeamComponent 
+                        src={umar}
+                        name={"Umar Mohammed"}
+                        title={"Product Designer"}
+                        />
+                        <TeamComponent 
+                        src={mujeeb}
+                        name={"Mohammad Abdulmujeeb"}
+                        title={"Back-end Developer"}
+                        />
+                        <TeamComponent 
+                        src={umar}
+                        name={"Umar Mohammed"}
+                        title={"Product Designer"}
+                        />
+                    </div>
                 </section>
             </section>
         </MainWrapper>
