@@ -10,9 +10,12 @@ import Logo from "../ui/logo";
 import photo from "../../public/profile_image.png";
 import UserCard from "./components/userCard";
 import { useState } from "react";
-
 import Help from "./sections/help";
 import UpdateProfile from "./sections/updateProfile";
+import Subscribe from "../components/landing_page/subscribe";
+import ButtonBlue from "../ui/buttonBlue";
+import ButtonGlass from "../ui/buttonGlass";
+import Footer from "../footer";
 
 
 function Layout ({ children }) {
@@ -27,6 +30,7 @@ function Layout ({ children }) {
   }
 
   return (
+    <>
     
     <div className="flex gap-4 px:4 md:px-6 min-h-screen py-2">
       {/* Sidebar  *** side bar is kept hidden for the meantime */}
@@ -77,6 +81,10 @@ function Layout ({ children }) {
         </main>
       </div>
     </div>
+    
+    
+    <Footer />
+    </>
   )
 }
 export default Layout;
