@@ -15,11 +15,11 @@ import Rules from "./components/landing_page/rules.js"
 import ButtonBlue from "./ui/buttonBlue";
 import ButtonGlass from "./ui/buttonGlass";
 import Link from "next/link";
+import MainWrapper from "./main";
 
 export default function Home() {
     return (
-        <div className="">
-        <main className="flex flex-col items-center gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]">
+      <MainWrapper>
         <section
           className="bg-custom
                 flex flex-col items-center
@@ -127,8 +127,6 @@ export default function Home() {
                 
 
             </section>
-
-        </main>
-        </div>
+      </MainWrapper>
     );
 }

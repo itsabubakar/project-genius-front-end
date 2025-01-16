@@ -131,8 +131,9 @@ export default function RootLayout({ children }) {
             <Button classname="w-full">Login</Button>
           </div>
         )}
-
+          
         {children}
+        
 
       </body>
       <Footer />
