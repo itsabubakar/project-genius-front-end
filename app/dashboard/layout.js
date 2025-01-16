@@ -1,10 +1,15 @@
 "use client"
 import Link from "next/link";
-import Overview from "../../public/svg/overview.svg";
+import overview from "../../public/svg/overview.svg";
+import overviewBlack from "../../public/icons/black_overview.svg";
 import rank from "../../public/icons/rank.svg";
+import rankBlack from "../../public/icons/rankBlack.svg";
 import profile from "../../public/icons/profile.svg";
+import profileBlack from "../../public/icons/profileBlack.svg";
 import help from "../../public/icons/help.svg";
+import helpBlack from "../../public/icons/helpBlack.svg";
 import logout from "../../public/icons/logout.svg";
+
 import Image from "next/image";
 import Logo from "../ui/logo";
 import photo from "../../public/profile_image.png";
@@ -50,21 +55,37 @@ function Layout ({ children }) {
 
         <nav className="flex flex-col w-full gap-8">
           <ul className="flex w-full flex-col  gap-8">
-              <li onClick={() => handleTab("overview")} className={`${isActive("overview")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
-                <Image src={Overview} /> Overview
+              <li onClick={() => handleTab("overview")}
+                className={`${isActive("overview")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center
+                `}>
+                <Image src={isActive("overview") ? 
+                  overview 
+                  : 
+                  overviewBlack} 
+                /> Overview
               </li>
-            <Link href="/dashboard">
-              <li className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center">
-                <Image src={rank} className="text-primary"/> Rank and Progress
+              <li onClick={() => handleTab("rank")}
+                className={`${isActive("rank")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center
+                `}>
+                <Image src={isActive("rank") ? 
+                  rank : rankBlack
+                  }
+                  className="text-primary"
+                />Rank and Progress
               </li>
-            </Link>
-              <li onClick={() => handleTab("update-profile")} className={`${isActive("update-profile")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center`}>
-                <Image src={profile} /> Update profile
+              <li onClick={() => handleTab("update-profile")}
+                className={`${isActive("update-profile")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center
+                `}>
+                <Image src={isActive("update-profile") ? profile : profileBlack} /> Update profile
               </li>
-              <li onClick={() => handleTab("help")} className={`${isActive("help")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
-                <Image src={help}/>Find help
+              <li onClick={() => handleTab("help")}
+                className={`${isActive("help")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
+                <Image src={isActive("help") ? 
+                  help : helpBlack}
+                />Find help
               </li>
           </ul>
+
           <hr className=""/>
           <button className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center "><Image src={logout}/> Logout</button>
         </nav>
