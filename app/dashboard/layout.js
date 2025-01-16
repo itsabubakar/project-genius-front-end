@@ -10,7 +10,10 @@ import Logo from "../ui/logo";
 import photo from "../../public/profile_image.png";
 import UserCard from "./components/userCard";
 import { useState } from "react";
+
 import Help from "./sections/help";
+import UpdateProfile from "./sections/updateProfile";
+
 
 function Layout ({ children }) {
 
@@ -43,7 +46,7 @@ function Layout ({ children }) {
 
         <nav className="flex flex-col w-full gap-8">
           <ul className="flex w-full flex-col  gap-8">
-              <li onClick={() => handleTab("overview")} className={` h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
+              <li onClick={() => handleTab("overview")} className={`${isActive("overview")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
                 <Image src={Overview} /> Overview
               </li>
             <Link href="/dashboard">
@@ -51,12 +54,10 @@ function Layout ({ children }) {
                 <Image src={rank} className="text-primary"/> Rank and Progress
               </li>
             </Link>
-            <Link href="/dashboard/profile">
-              <li className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center">
+              <li onClick={() => handleTab("update-profile")} className={`${isActive("update-profile")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center`}>
                 <Image src={profile} /> Update profile
               </li>
-            </Link>
-              <li onClick={() => handleTab("help")} className={` h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
+              <li onClick={() => handleTab("help")} className={`${isActive("help")} h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center `}>
                 <Image src={help}/>Find help
               </li>
           </ul>
@@ -71,8 +72,8 @@ function Layout ({ children }) {
         {/* Content */}
         <main className="flex-1 px-4 py-6 md:px-6 lg:p-8 bg-greyscale_background_light">
           {activeTab === "overview" && children}
-
           {activeTab === "help" && <Help />}
+          {activeTab === "update-profile" && <UpdateProfile />}
         </main>
       </div>
     </div>

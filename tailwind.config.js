@@ -25,6 +25,7 @@ module.exports = {
         greyscale_surface_subtle: "#F3F4F6",
         greyscale_subtitle: "#4F5569", // lighter shade of gray
         greyscale_border: "#A2A7B9",
+        greyscale_disabled: "#D0D3DC",
 
         greyscale_background_light: "#FEFEFE",
         error_dark: "#A70C0C", // red

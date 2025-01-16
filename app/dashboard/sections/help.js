@@ -32,10 +32,10 @@ export default function Help() {
         <section className="w-full shadow-md flex flex-col p-4 gap-8 rounded-2xl">
             <h1 className="font-medium text-[24px]">Still Have Questions? We're Here To Help!</h1>
 
-            <ul className="flex flex-col gap-1 p-4 bg-primary_subtle rounded-xl">
-            <li className="inter ">Ufuoma Morgan (Chairman)</li>
-            <li className="inter flex gap-2"><Image src={phone} />+ 234 905 5433 811</li>
-            <li className="inter flex gap-2"><Image src={mail} />example@gmail.com</li>
+            <ul className="inter flex flex-col gap-1 p-4 bg-primary_subtle rounded-xl">
+            <li className="">Ufuoma Morgan (Chairman)</li>
+            <li className="flex gap-2"><Image src={phone} />+ 234 905 5433 811</li>
+            <li className="flex gap-2"><Image src={mail} />example@gmail.com</li>
             
 
             </ul>
