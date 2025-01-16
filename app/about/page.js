@@ -14,18 +14,18 @@ function About() {
         <MainWrapper>
             <section className="
                 flex flex-col gap-[120px] items-center
-                py-[40px] sm:py-[64px] md:py-[80px]
+                py-[40px]  px-16 sm:py-[64px] md:px-[62px] lg:px-[150px] md:py-[80px]
                 w-full text-center lg:justify-between lg:gap-[83px]
                 padding-style">
                 
                 <Heading
                     heading={"Why Project Genius?"}
                     subHeading={"Project GENIUS is an exciting and inclusive platform designed to inspire creativity and foster a drive for innovation among students. Hosted at Ahmadu Bello University, the competition is held annually during the first quarter of the year. With a focus on transformative ideas and collaboration, the contest aims to empower participants to push boundaries and make a lasting impact"}
-                    classname={"py-20 text-center"}
+                    classname={""}
                 />
 
-                <div className="flex flex-col gap-16">
-                    <article className="flex flex-col gap-8 md:flex-row items-center text-center">
+                <div className="flex flex-col gap-16 md:gap-[200px]">
+                    <article className="flex flex-col gap-8 md:gap-24 md:flex-row items-center text-center md:text-start">
                         <Heading
                             heading={"Mission"}
                             subHeading={"Project GENIUS is an exciting and inclusive platform designed to inspire creativity and foster a drive for innovation among students. Hosted at Ahmadu Bello University, the competition is held annually during the first quarter of the year. With a focus on transformative ideas and collaboration, the contest aims to empower participants to push boundaries and make a lasting impact"}
@@ -33,15 +33,15 @@ function About() {
                         />
                         <Image src={hands} alt="hands"/>
                     </article>
-                    <article className="flex flex-col gap-8 md:flex-row items-center text-center">
+                    <article className="flex flex-col gap-8 md:gap-24 md:flex-row-reverse items-center text-center md:text-start">
                         <Heading
                             heading={"Vision"}
                             subHeading={"Our vision is to establish a platform that inspires students to think creatively, collaborate with peers from diverse disciplines, and craft practical, innovative solutions to real-world challenges. The Project GENIUS Contest transcends the boundaries of a traditional competition, offering participants a transformative journey of discovery, learning, and personal growth"}
                             classname={""}
                         />
-                        <Image src={innovate} alt="hands"/>
+                        <Image src={innovate} alt="lighbulb"/>
                     </article>
-                    <article className="flex flex-col gap-8 md:flex-row items-center text-center">
+                    <article className="flex flex-col gap-8 md:gap-24 md:flex-row items-center text-center md:text-start">
                         
                         <Heading
                             heading={"Our Story"}
