@@ -46,7 +46,7 @@ export default function Home() {
 
         <section
           className="flex flex-col items-center text-center gap-[54px]
-            padding-style ma=x-auto">
+            padding-style">
           <Headings
             heading={"Why Project Genius?"}
             subHeading={
@@ -54,7 +54,7 @@ export default function Home() {
             }
           />
 
-          <div className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-5 pb-5 w-[1120px] max-w-[1200px]">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-5 pb-5 max-w-[1200px]">
             {infoData.map((card, index) => (
               <InfoCard
                 key={index}
