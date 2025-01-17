@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
           <div className="flex gap-[32px] items-center">
             <ul
               className="hidden md:flex text-greyscale_title py-[24px] gap-[32px]
-      font-medium"
+                font-medium"
             >
               <li className="hover:text-primary transition duration-300">
                 <Link href="/">Events</Link>
@@ -91,7 +91,7 @@ export default function RootLayout({ children }) {
                 <Link href="/">Partners & Sponsors</Link>
               </li>
               <li className="hover:text-primary transition duration-300">
-                <Link href="/">About Us</Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li className="hover:text-primary transition duration-300">
                 <Link href="/contact">Contact Us</Link>
@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
                 <Link href="/">Partners & Sponsors</Link>
               </li>
               <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/">About Us</Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li className="hover:text-primary transition duration-300 py-6">
                 <Link href="/contact">Contact Us</Link>
