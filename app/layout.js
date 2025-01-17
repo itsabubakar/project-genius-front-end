@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
                 <Link href="/">Partners & Sponsors</Link>
               </li>
               <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/">About Us</Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li className="hover:text-primary transition duration-300 py-6">
                 <Link href="/contact">Contact Us</Link>
