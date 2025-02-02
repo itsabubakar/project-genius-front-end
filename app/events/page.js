@@ -1,6 +1,5 @@
 import Heading from "../components/landing_page/header";
-import EventButtons from "../components/pastEvent/buttons";
-import Event from '../../public/event_main.png';
+import Events from "../components/Events";
 import Image from "next/image";
 export default function EventPage() {
     return (
@@ -9,10 +8,7 @@ export default function EventPage() {
                 heading="Events"
                 subHeading="Explore past achievements and get ready for what's next in the world of innovation!"
             />
-            <EventButtons />
-            <Image
-                className=""
-                src={Event}/>
+            <Events/>
 
         </section>
     )
