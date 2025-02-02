@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const navClass = "hover:text-primary transition duration-300 py-6"
+
   // Exclude RootLayout for dashboard routes
   if (pathname.startsWith("/dashboard")) {
     return (
@@ -80,23 +82,15 @@ export default function RootLayout({ children }) {
           <Logo classname="text-xl sm:text-[28px] lg:text-2xl" />
 
           <div className="flex gap-[32px] items-center">
-            <ul
+            <nav
               className="hidden md:flex text-greyscale_title py-[24px] gap-[32px]
                 font-medium"
             >
-              <li className="hover:text-primary transition duration-300">
-                <Link href="/">Events</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300">
-                <Link href="/">Partners & Sponsors</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300">
-                <Link href="/about">About Us</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300">
-                <Link href="/contact">Contact Us</Link>
-              </li>
-            </ul>
+                <Link className={`${navClass}`} href="/events">Events</Link>
+                <Link className={`${navClass}`} href="/">Partners & Sponsors</Link>
+                <Link className={`${navClass}`} href="/contact">Contact Us</Link>
+                <Link className={`${navClass}`} href="/about">About Us</Link>
+            </nav>
             <Button classname="hidden sm:block">Login</Button>
             <div>
               <Image
@@ -114,29 +108,21 @@ export default function RootLayout({ children }) {
             className="fixed left-0 w-full md:hidden h-[85vh] bg-white shadow-lg z-40 
                 py-4 px-6 flex flex-col justify-between"
           >
-            <ul className="text-greyscale_title font-medium flex flex-col flex-grow overflow-auto">
-              <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/">Events</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/">Partners & Sponsors</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/about">About Us</Link>
-              </li>
-              <li className="hover:text-primary transition duration-300 py-6">
-                <Link href="/contact">Contact Us</Link>
-              </li>
-            </ul>
+            <nav className="text-greyscale_title font-medium flex flex-col gap-4">
+              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/events">Events</Link>
+              
+              <Link className={`${navClass}`} href="/">Partners & Sponsors</Link>
+              <Link className={`${navClass}`} href="/about">About Us</Link>
+              <Link className={`${navClass}`} href="/contact">Contact Us</Link>
+              
+            </nav>
             <Button classname="w-full">Login</Button>
           </div>
         )}
           
         {children}
-        
-
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }
