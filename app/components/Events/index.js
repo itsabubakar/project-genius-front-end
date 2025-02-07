@@ -53,7 +53,7 @@ export default function Events() {
                         image={runnerUp}
                     />
                     <Gallery
-                        text={"Innovator (1st Runner-Up)"}
+                        text={"Innovator (2nd Runner-Up)"}
                         image={runnerup2}
                     />
                 </div>
