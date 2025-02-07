@@ -16,6 +16,7 @@ module.exports = {
         primary_light: "#7494EC",
         primary_dark: "#06102D",
         primary_label_dark: '#06102D',
+        primary_surface: '#93A0C4',
 
         secondary_surface_light: "#F6F0FF", // pink
         secondary_border_default: "#B57BFF"
