@@ -8,16 +8,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-
+import { useState } from "react";
 
 // Zod schema for validation
 export const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Invalid password input"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
 export default function Login() {
   const router = useRouter();
+  const [loginError, setLoginError] = useState("");
 
   const navigateTocreate = () => {
     router.push('/auth/create-profile');
@@ -32,8 +33,27 @@ export default function Login() {
     mode: "onChange",
   });
 
-  const onSubmit = (data) => {
-    console.log("Form data:", data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("https://project-genius-back-end.onrender.com/auth/connect", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Login successful:", result);
+        // Handle successful login, e.g., redirect to dashboard
+      } else {
+        setLoginError(result.error || "Invalid login credentials");
+      }
+    } catch (error) {
+      setLoginError("Network error, please try again.");
+    }
   };
 
   return (
@@ -55,9 +75,7 @@ export default function Login() {
               ${
                 errors.email
                   ? "outline-error_dark text-error_dark bg-error_subtle"
-                  : touchedFields.email
-                  ? "outline-success_dark text-success_dark bg-success_subtle"
-                  : "bg-greyscale_surface_subtle focus:outline-primary"
+                  :  "bg-greyscale_surface_subtle focus:outline-primary"
               }`}
             placeholder="Enter your email address"
           />
@@ -76,8 +94,6 @@ export default function Login() {
               ${
                 errors.password
                   ? "outline-error_dark bg-error_subtle"
-                  : touchedFields.password
-                  ? "outline-green-500 bg-green-100"
                   : "bg-greyscale_surface_subtle focus:outline-primary"
               }`}
             placeholder="Enter your password"
@@ -87,19 +103,21 @@ export default function Login() {
           )}
         </div>
 
+        {loginError && (
+          <p className="text-red-500 text-sm">{loginError}</p>
+        )}
+
         <div className="flex flex-col gap-4 w-[100%] sm:flex-row justify-center items-center">
           <ButtonBlue classname={"active:bg-greyscale_subtitle md:w-[50%]"}>
             Login
           </ButtonBlue>
 
-            <ButtonGlass classname="md:w-[50%] lg:w-fit"
-              onClick={navigateTocreate}
-            >Create account</ButtonGlass>
+          <ButtonGlass classname="md:w-[50%] lg:w-fit" onClick={navigateTocreate}>
+            Create account
+          </ButtonGlass>
         </div>
-        <Link href={'/auth/forgot-password'}
-          className="text-right md:ml-auto text-greyscale_text"
-          >
-            Forgot Password?
+        <Link href={'/auth/forgot-password'} className="text-right md:ml-auto text-greyscale_text">
+          Forgot Password?
         </Link>
       </form>
     </AuthLayout>
