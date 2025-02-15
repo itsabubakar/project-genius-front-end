@@ -12,6 +12,7 @@ import { useState } from "react";
 
 import Next from "../../../public/icons/arrow_next.svg";
 import Previous from "../../../public/icons/arrow_back.svg";
+import Modal from "../modal";
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
@@ -113,6 +114,14 @@ function MobileForm({ currentSection, nextSection, previousSection }) {
 
         {errors.apiError && <p className="text-error_dark">{errors.apiError.message}</p>}
       </form>
+      
+                  {modalOpen && (
+                      <Modal
+                          heading={"Email Confirmation Sent"}
+                          subHeading={"You account has been created successfully! Please, check your email for a confirmation link"}
+                          modalClose={closeModal}
+                      />
+                  )}
     </div>
   );
 }

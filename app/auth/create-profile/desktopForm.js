@@ -15,7 +15,7 @@ const DesktopForm = ({ handleSubmit }) => {
         console.log("working");
     };*/ // code not functioning for page navigation
 return (
-    <div>ss</div>
+    <div></div>
 );
 };
 
