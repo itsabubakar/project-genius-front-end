@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
   lastName: yup.string().required("Last name is required"),
   email: yup.string().email("Invalid email format").required("Email is required"),
-  phone: yup.number().min(11, "A valid phone number is 11 digits long").required("Phone number is required"),
+  phone: yup.number().required("Phone number is required"),
   faculty: yup.string().required("Faculty is required"),
   department: yup.string().required("Department is required"),
   role: yup.string().required("Role is required"),
@@ -101,7 +101,7 @@ function MobileForm({ currentSection, nextSection, previousSection }) {
 
   return (
     <div className="block w-full">
-      <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
+      <form className="w-full " onSubmit={handleSubmit(onSubmit)}>
         {currentSection === 1 && (
           <section className="w-full flex flex-col gap-4">
             <InputField label="First Name" name="firstName" register={register} placeholder="Enter your first name" error={errors.firstName} />
@@ -123,7 +123,7 @@ function MobileForm({ currentSection, nextSection, previousSection }) {
               name="faculty"
               control={control}
               options={faculties.map((f) => f.faculty)}
-              errors={null}
+              errors={errors.department}
               onChange={handleFacultyChange}
             />
             <SelectField
@@ -131,9 +131,9 @@ function MobileForm({ currentSection, nextSection, previousSection }) {
               name="department"
               control={control}
               options={departmentOptions}
-              errors={null}
+              errors={errors.department}
             />
-            <SelectField label="Select your Team Designation" name="role" control={control} options={["Member", "Lead"]} errors={errors.role} />
+            <SelectField label="Select your Team Designation" name="role" control={control} options={["member", "lead"]} errors={errors.role} />
             
             <InputField label="Password" name="password" register={register} type="password" placeholder="Enter your password" error={errors.password} />
             <InputField label="Confirm Password" name="confirmPassword" register={register} type="password" placeholder="Confirm your password" error={errors.confirmPassword} />
@@ -141,10 +141,10 @@ function MobileForm({ currentSection, nextSection, previousSection }) {
           </section>
           
           <div className="flex gap-4 mt-3">
-          <ButtonGlass classname="w-[50%] flex items-center justify-center gap-2" onClick={previousSection}>
+          <ButtonGlass classname="w-[50%] sm:w-[50%] flex items-center justify-center gap-2" onClick={previousSection}>
             <Image src={Previous} alt="previous"/> Previous
           </ButtonGlass>
-          <ButtonBlue classname="active:bg-greyscale_subtitle w-[50%] flex justify-center" type="submit">
+          <ButtonBlue classname="active:bg-greyscale_subtitle w-[50%] sm:w-[50%] flex justify-center" type="submit">
             {loading ? <Image src={spinner} className="animate-spin"/> : "Create account"}
           </ButtonBlue>
         </div>

@@ -205,9 +205,11 @@ const Page = () => {
                   height={24}
                   className="min-w-[24px] min-h-[24px] w-auto h-auto"
                 />
-                <h1 className="text-[#06102D] font-medium ml-4">
-                  + 234 703 0207 301
-                </h1>
+                <div className="text-[#06102D] font-medium ml-4">
+                  
+                  <p>+234 906 555 3105 - Mohammad Salman</p>
+                  <p>+234 807 546 1423 - Amina Ismail</p>
+                </div>
               </div>
               <Image
                 alt="arrow"

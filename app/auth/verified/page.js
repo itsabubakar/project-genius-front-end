@@ -1,16 +1,13 @@
 "use client"
 import { useState } from "react";
 import ButtonBlue from "../../ui/buttonBlue";
+import { useRouter } from "next/navigation";
 
 export default function Verified() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => setModalOpen(false);
+    const router = useRouter();
 
-    const HandleSubmit = (e) => {
-        e.preventDefault();
-
-        openModal();
+    const navigateToLogin = () => {
+        router.push('/auth');
     }
 
     return (
@@ -22,6 +19,7 @@ export default function Verified() {
             </div>
 
             <ButtonBlue
+                onClick={navigateToLogin}
                 classname={"xs-[340px] md:w-[264px] lg:w-[162px]"}
             >
                 Login

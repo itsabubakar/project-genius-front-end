@@ -2,9 +2,7 @@ const regulationData = [
     {
         heading: "Eligibility",
         details: [
-            "Teams must submit an executive summary with a problem statement, solution, and prototype budget.",
-            "Presentations can be physical or online.",
-            "All submissions must be the team’s original work."
+            "The contest is open to all undergraduate students of ABU and anyone passionate about exploring innovation and driving positive impact."
 
         ]
     },
@@ -22,9 +20,14 @@ const regulationData = [
     {
         heading: "Submission Requirements",
         details: [
-            "Teams must submit an executive summary with a problem statement, solution, and prototype budget.",
-            "Presentations can be physical or online.",
-            "All submissions must be the team’s original work."
+            "A video pitch that highlights the key points of their proposal.",
+            "A brief document detailing:",
+            "The identified problem",
+            "The proposed solution",
+            "A cost-benefit analysis",
+            "A material breakdown",
+            "A comprehensive budget",
+
 
         ]
     },
@@ -51,8 +54,8 @@ const regulationData = [
     {
         heading: "Presentation And Exhibition",
         details: [
-            "Finalists must prepare a prototype, presentation, and progress report for the final round on August 10th.",
-            "Teams will present to judges and an audience, followed by a prototype exhibition."
+            "Initial Round: Participants will present their video pitch virtually.",
+            "Grand Finale: Finalists will showcase an exhibition featuring designs, 3D models, and presentation slides"
 
         ]
     },

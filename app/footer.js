@@ -1,3 +1,4 @@
+"use client"
 import insta from "../public/icons/instagram.svg";
 import x from "../public/icons/x.svg";
 import linkedin from "../public/icons/linkedin.svg";
@@ -10,8 +11,14 @@ import Subscribe from "./components/landing_page/subscribe.js";
 import Link from "next/link";
 import Logo from "./ui/logo";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Footer(){
+  const router = useRouter();
+  
+  const navigateToAbout = () => {
+    router.push('/about');
+  };
     return(
         
             <footer
@@ -33,6 +40,7 @@ export default function Footer(){
                     classname={
                     "border-greyscale_surface_subtle text-greyscale_surface_subtle"
                     }
+                    onClick={navigateToAbout}
                 >
                     Learn More
                 </ButtonGlass>
@@ -68,10 +76,10 @@ export default function Footer(){
                 <h4 className="text-xl font-bold">Events</h4>
                 <ul className="flex flex-col gap-3 inter">
                     <li>
-                    <Link href="/">Past highlights</Link>
+                    <Link href="/events">Past highlights</Link>
                     </li>
                     <li>
-                    <Link href="/">Upcoming events</Link>
+                    <Link href="/events">Upcoming events</Link>
                     </li>
                 </ul>
                 </div>
@@ -107,7 +115,7 @@ export default function Footer(){
                     </Link>
                     </li>
                     <li>
-                    <Link href="/">
+                    <Link href="https://www.linkedin.com/company/project-genius-ng/">
                         <Image src={linkedin} alt="mail" />
                     </Link>
                     </li>

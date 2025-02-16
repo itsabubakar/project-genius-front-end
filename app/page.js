@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import hero from "../public/svg/Hero image (1).svg";
 
@@ -16,8 +17,14 @@ import ButtonBlue from "./ui/buttonBlue";
 import ButtonGlass from "./ui/buttonGlass";
 import Link from "next/link";
 import MainWrapper from "./main";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  
+  const navigateToAbout = () => {
+    router.push('/about');
+  };
     return (
       <MainWrapper>
         <section
@@ -37,7 +44,7 @@ export default function Home() {
                             
                             <ButtonBlue>Apply Now</ButtonBlue>
                           </Link>
-                            <ButtonGlass>Learn More</ButtonGlass>
+                            <ButtonGlass onClick={navigateToAbout}>Learn More</ButtonGlass>
                         </div>
                 </div>
                 

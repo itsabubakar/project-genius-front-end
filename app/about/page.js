@@ -2,8 +2,9 @@ import MainWrapper from "../main";
 import Image from "next/image";
 import hands from "../../public/hands.png"
 import innovate from "../../public/innovate.png"
-import umar from "../../public/umar.png"
-import mujeeb from "../../public/mujeeb.png"
+
+import lead1 from "../../public/1.jpg"
+import lead2 from "../../public/2.jpg"
 
 import spark from "../../public/spark.png"
 import TeamComponent from "./memberComponent";
@@ -20,7 +21,7 @@ function About() {
                 
                 <Heading
                     heading={"Why Project Genius?"}
-                    subHeading={"Project GENIUS is an exciting and inclusive platform designed to inspire creativity and foster a drive for innovation among students. Hosted at Ahmadu Bello University, the competition is held annually during the first quarter of the year. With a focus on transformative ideas and collaboration, the contest aims to empower participants to push boundaries and make a lasting impact"}
+                    subHeading={"Project GENIUS is more than just a contest—it’s a transformative platform that empowers students to embark on an extraordinary journey. Here, you have the opportunity to collaborate, network, and think beyond the classroom, unlocking your full potential as an innovator."}
                     classname={""}
                 />
 
@@ -28,7 +29,7 @@ function About() {
                     <article className="flex flex-col gap-8 md:gap-24 md:flex-row items-center text-center md:text-start">
                         <Heading
                             heading={"Mission"}
-                            subHeading={"Project GENIUS is an exciting and inclusive platform designed to inspire creativity and foster a drive for innovation among students. Hosted at Ahmadu Bello University, the competition is held annually during the first quarter of the year. With a focus on transformative ideas and collaboration, the contest aims to empower participants to push boundaries and make a lasting impact"}
+                            subHeading={"Our mission is to equip students with practical skills to identify, analyze, and creatively solve problems unique to their local environments."}
                             classname={""}
                         />
                         <Image src={hands} alt="hands"/>
@@ -58,39 +59,14 @@ function About() {
 
                     <div className="flex flex-wrap justify-center w-fit">
                         <TeamComponent 
-                        src={umar}
-                        name={"Umar Mohammed"}
-                        title={"Product Designer"}
+                        src={lead1}
+                        name={"Muhammad Salman"}
+                        title={"Project Manager"}
                         />
                         <TeamComponent 
-                        src={mujeeb}
+                        src={lead2}
                         name={"Mohammad Abdulmujeeb"}
                         title={"Back-end Developer"}
-                        />
-                        <TeamComponent 
-                        src={umar}
-                        name={"Umar Mohammed"}
-                        title={"Product Designer"}
-                        />
-                        <TeamComponent 
-                        src={mujeeb}
-                        name={"Mohammad Abdulmujeeb"}
-                        title={"Back-end Developer"}
-                        />
-                        <TeamComponent 
-                        src={umar}
-                        name={"Umar Mohammed"}
-                        title={"Product Designer"}
-                        />
-                        <TeamComponent 
-                        src={mujeeb}
-                        name={"Mohammad Abdulmujeeb"}
-                        title={"Back-end Developer"}
-                        />
-                        <TeamComponent 
-                        src={umar}
-                        name={"Umar Mohammed"}
-                        title={"Product Designer"}
                         />
                     </div>
                 </section>

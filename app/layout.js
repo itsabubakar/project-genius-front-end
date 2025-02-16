@@ -111,9 +111,9 @@ export default function RootLayout({ children }) {
             <nav className="text-greyscale_title font-medium flex flex-col gap-4">
               <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/events">Events</Link>
               
-              <Link className={`${navClass}`} href="/">Partners & Sponsors</Link>
-              <Link className={`${navClass}`} href="/about">About Us</Link>
-              <Link className={`${navClass}`} href="/contact">Contact Us</Link>
+              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/">Partners & Sponsors</Link>
+              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/about">About Us</Link>
+              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/contact">Contact Us</Link>
               
             </nav>
             <Button classname="w-full">Login</Button>

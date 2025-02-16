@@ -49,6 +49,24 @@ function Layout ({ children }) {
     
   }
 
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("https://project-genius-back-end.onrender.com/auth/disconnect", {
+        method: "DELETE",
+      });
+  
+      if (response.status === 204) {
+        console.log("User logged out successfully.");
+        localStorage.removeItem("user"); // Remove token from storage
+        window.location.href = "/auth"; // Redirect to login page
+      } else {
+        console.error("Logout failed.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+  };
+
   return (
     <>
     
@@ -123,7 +141,7 @@ function Layout ({ children }) {
           </ul>
 
           <hr className=""/>
-          <button className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center "><Image src={logout}/> Logout</button>
+          <button onClick={handleLogout} className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center "><Image src={logout}/> Logout</button>
         </nav>
       </aside>
 
@@ -147,7 +165,7 @@ function Layout ({ children }) {
                 </li>
               </ul>
               <hr />
-              <button className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center">
+              <button onClick={handleLogout} className="h-11 px-4 rounded-lg py-[10px] gap-3 flex items-center">
                 <Image src={logout} /> Logout
               </button>
             </nav>

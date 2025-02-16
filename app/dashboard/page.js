@@ -7,9 +7,12 @@ import UserCard from "./components/userCard";
 import Progress from "./components/progress";
 import progressData from "../data/progressData";
 
+import spinner from "../../public/svg/spinner.svg";
+
 import Unavailable from '../../public/unavailable.png'
 import ButtonBlue from "../ui/buttonBlue";
 import Modal from "./components/modal";
+import Link from "next/link";
 
 const currentStep = 1;
 
@@ -48,7 +51,7 @@ const Dashboard = () => {
                 if (response.status === 200) {
                     setUserData(result);
                 } else if (response.status === 401) {
-                    setError("Invalid login ID");
+                    setError("Invalid login credentials");
                 } else {
                     setError(result.message || "Something went wrong");
                 }
@@ -63,11 +66,13 @@ const Dashboard = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading user data...</div>;
+        return <div className="w-full h-full flex justify-center items-center">
+            <Image src={spinner} className="w-16 h-16 animate-spin" alt="Loading" />
+            </div>;
     }
 
     if (error) {
-        return <div className="text-red-500">{error}</div>;
+        return <div className="text-red-500">{error}. <Link className="text-primary underline" href={'/auth'}>Login</Link> </div>;
     }
 
     if (!user) {
