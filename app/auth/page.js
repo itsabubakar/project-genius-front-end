@@ -9,6 +9,9 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import Image from "next/image";
+
+import spinner from "../../public/svg/spinner.svg";
 
 // Zod schema for validation
 export const loginSchema = z.object({
@@ -18,6 +21,7 @@ export const loginSchema = z.object({
 
 export default function Login() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
 
   const navigateTocreate = () => {
@@ -34,29 +38,31 @@ export default function Login() {
   });
 
   const onSubmit = async (data) => {
+    setLoading(true); // Start loading
     try {
-      const response = await fetch("https://project-genius-back-end.onrender.com/auth/connect", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+        const response = await fetch("https://project-genius-back-end.onrender.com/auth/connect", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
 
-      const result = await response.json();
-      console.log(result);
+        const result = await response.json();
+        console.log(result);
 
-      if (response.ok) {
-        localStorage.setItem("user", JSON.stringify(result));
-        router.push('/dashboard');
-        // Handle successful login, e.g., redirect to dashboard
-      } else {
-        setLoginError(result.error || "Invalid login credentials");
-      }
+        if (response.ok) {
+            localStorage.setItem("user", JSON.stringify(result));
+            router.push('/dashboard');
+        } else {
+            setLoginError(result.error || "Invalid login credentials");
+        }
     } catch (error) {
-      setLoginError("Network error, please try again.");
+        setLoginError("Network error, please try again.");
+    } finally {
+        setLoading(false); // Stop loading
     }
-  };
+};
 
   return (
     <AuthLayout>
@@ -110,12 +116,12 @@ export default function Login() {
         )}
 
         <div className="flex flex-col gap-4 w-[100%] sm:flex-row justify-center items-center">
-          <ButtonBlue classname={"active:bg-greyscale_subtitle md:w-[50%]"}>
-            Login
+          <ButtonBlue classname={"active:bg-greyscale_subtitle md:w-[50%] flex justify-center"}>
+            {loading ? <Image src={spinner} className="animate-spin"/> : "Login"}
           </ButtonBlue>
 
-          <ButtonGlass classname="md:w-[50%] lg:w-fit" onClick={navigateTocreate}>
-            Create account
+          <ButtonGlass classname="md:w-[50%]" onClick={navigateTocreate}>
+            Register
           </ButtonGlass>
         </div>
         <Link href={'/auth/forgot-password'} className="text-right md:ml-auto text-greyscale_text">

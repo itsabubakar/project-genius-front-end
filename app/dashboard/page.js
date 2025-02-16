@@ -1,9 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
 import Heading from "../components/landing_page/header";
 import UserCard from "./components/userCard";
 import Progress from "./components/progress";
 import progressData from "../data/progressData";
+
+import Unavailable from '../../public/unavailable.png'
+import ButtonBlue from "../ui/buttonBlue";
+import Modal from "./components/modal";
 
 const currentStep = 1;
 
@@ -12,6 +18,11 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -75,46 +86,111 @@ const Dashboard = () => {
             <hr />
 
             {/* Team Section */}
-            <section className="flex flex-col gap-6 p-4 lg:pb-[55px] shadow-xl rounded-xl">
                 {userData?.team ? (
                     <>
+                    <section className="flex flex-col gap-6 p-4 lg:pb-[55px] shadow-xl rounded-xl">
                         <div className="flex flex-col gap-2">
                             <h1 className="text-2xl font-medium text-greyscale_title">{userData.team}</h1>
                             <p className="text-greyscale_subtitle">A team of digital pioneers shaping the future.</p>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-xl font-semibold">Team Members</h2>
-                            <div className="grid grid-cols-2 gap-4">
-                                {userData.members?.map((member, index) => (
-                                    <UserCard key={index} name={member.first_name} role={member.role} />
-                                ))}
+                            <div className="flex flex-col gap-4">
+                                <UserCard 
+                                    photo={photo}
+                                    name={"Umar"}
+                                    role={"Team Leader"}
+                                />
+                                <div className="flex flex-col w-[100%] lg:flex-row gap-4">
+                                    <UserCard
+                                        photo={photo}
+                                        name={"Hamid"}
+                                        role={"Team Member"}
+                                        classname={"lg:w-[25%]"}
+                                    />
+                                    <UserCard
+                                        photo={photo}
+                                        name={"Baqir"}
+                                        role={"Team Member"}
+                                        classname={"lg:w-[25%]"}
+                                    />
+                                    <UserCard
+                                        photo={photo}
+                                        name={"Westie"}
+                                        role={"Team Member"}
+                                        classname={"lg:w-[25%]"}
+                                    />
+                                    <UserCard
+                                        photo={photo}
+                                        name={"John"}
+                                        role={"Team Member"}
+                                        classname={"lg:w-[25%]"}
+                                    />
+                                </div>
                             </div>
                         </div>
+                    </section>
+                    <section className="p-8 rounded-2xl flex flex-col gap-6 w-full shadow-lg">
+                        <h1 className="text-2xl font-medium text-greyscale_title">Competition Progress</h1>
+                        <div className="flex flex-col gap-1">
+                            {progressData.map((progress, index) => (
+                                <Progress
+                                    key={progress.id}
+                                    id={progress.id}
+                                    title={progress.title}
+                                    description={progress.description}
+                                    active={progress.date}
+                                    isLast={index === progressData.length - 1}
+                                    isNext={index === currentStep + 1}
+                                />
+                            ))}
+                        </div>
+                    </section>
                     </>
                 ) : (
-                    <div className="text-gray-500 text-lg">
-                        {userData?.message || "You are not part of a team yet."}
+                    <div className="text-center flex flex-col  items-center text-lg mx-auto">
+                        <Image src={Unavailable} alt="Unavailable" />
+                        <Heading
+                            heading="You haven't joined a team yet."
+                            classname="mt-12 mb-2"
+                            />
+                        <div className="flex flex-col gap-3 items-center">
+                        { user.role === "lead" ? (
+                            <>
+                            <p className=" text-greysca">Create a new team to lead and inspire your group</p>
+                            <ButtonBlue>Create Team</ButtonBlue></>
+                        ) : (
+                            <>
+                            <p className="">Collaborate with others by joining an existing team</p>
+                            <ButtonBlue onClick={openModal}>Join Team</ButtonBlue>
+                            </>
+                        )
+                        }
+                        </div>
                     </div>
                 )}
-            </section>
+                    {modalOpen && (
+                        
+                <Modal 
+                    heading={"Application starts at 12th of March"}
+                    subHeading="Use this time to organize your team and prepare for the competition"
+                    modalClose={closeModal} 
+                    
+                
+                >
+                {/*
+                    heading="Join a Team"
+                    subHeading="Enter the unique team code shared with you to join your team and participate in the competition"
+
+                    
+                    <input type="text" placeholder="Enter team code" className="w-full px-4 py-3 mt-8 mb-4 rounded-xl outline-none bg-greyscale_surface_subtle" />
+                    <ButtonBlue classname="mx-auto w-[318px] sm:w-[240px] ">Join Team</ButtonBlue>
+
+                */}
+                </Modal>
+                    )}
 
             {/* Progress Section */}
-            <section className="p-8 rounded-2xl flex flex-col gap-6 w-full shadow-lg">
-                <h1 className="text-2xl font-medium text-greyscale_title">Competition Progress</h1>
-                <div className="flex flex-col gap-1">
-                    {progressData.map((progress, index) => (
-                        <Progress
-                            key={progress.id}
-                            id={progress.id}
-                            title={progress.title}
-                            description={progress.description}
-                            active={progress.date}
-                            isLast={index === progressData.length - 1}
-                            isNext={index === currentStep + 1}
-                        />
-                    ))}
-                </div>
-            </section>
         </div>
     );
 };
