@@ -44,9 +44,11 @@ export default function Login() {
       });
 
       const result = await response.json();
+      console.log(result);
 
       if (response.ok) {
-        console.log("Login successful:", result);
+        localStorage.setItem("user", JSON.stringify(result));
+        router.push('/dashboard');
         // Handle successful login, e.g., redirect to dashboard
       } else {
         setLoginError(result.error || "Invalid login credentials");
