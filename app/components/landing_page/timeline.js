@@ -20,7 +20,11 @@ export default function Timeline({ start, end, heading, description, isLast }) {
             </div>
             <div className="flex flex-col gap-[8px] sm:text-start">
                 <h4 className="font-bold text-xl">{heading}</h4>
-                <p className="inter sm:w-[551px] md:w-[635px] lg:w-[853px] xl:w-[1000px]">{description}</p>
+                <ul>
+                {description.map((desc, index) => (
+                    <li key={index}>{desc}</li>
+                ))}
+                </ul>
             </div>
         </div>
     );
