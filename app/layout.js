@@ -10,12 +10,15 @@ import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import Footer from "./footer";
+import ButtonGlass from "./ui/buttonGlass";
+import { useRouter } from "next/navigation";
 
 export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
-  const navClass = "hover:text-primary transition duration-300 py-6"
+  const navClass = "hover:text-primary transition duration-300 py-6";
 
   // Exclude RootLayout for dashboard routes
   if (pathname.startsWith("/dashboard")) {
@@ -86,12 +89,32 @@ export default function RootLayout({ children }) {
               className="hidden md:flex text-greyscale_title py-[24px] gap-[32px]
                 font-medium"
             >
-                <Link className={`${navClass}`} href="/events">Events</Link>
-                <Link className={`${navClass}`} href="/">Partners & Sponsors</Link>
-                <Link className={`${navClass}`} href="/contact">Contact Us</Link>
-                <Link className={`${navClass}`} href="/about">About Us</Link>
+              <Link className={`${navClass}`} href="/events">
+                Events
+              </Link>
+              <Link className={`${navClass}`} href="/">
+                Partners & Sponsors
+              </Link>
+              <Link className={`${navClass}`} href="/contact">
+                Contact Us
+              </Link>
+              <Link className={`${navClass}`} href="/about">
+                About Us
+              </Link>
             </nav>
-            <Button classname="hidden sm:block">Login</Button>
+
+            <div className="flex gap-2">
+              <Button href="/auth/create-profile" classname="hidden sm:block">
+                Register
+              </Button>
+              <ButtonGlass
+                onClick={() => router.push("/auth")}
+                classname="hidden sm:block px-0 w-10"
+              >
+                Login
+              </ButtonGlass>
+            </div>
+
             <div>
               <Image
                 src={Menu}
@@ -109,17 +132,50 @@ export default function RootLayout({ children }) {
                 py-4 px-6 flex flex-col justify-between"
           >
             <nav className="text-greyscale_title font-medium flex flex-col gap-4">
-              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/events">Events</Link>
-              
-              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/">Partners & Sponsors</Link>
-              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/about">About Us</Link>
-              <Link className={`${navClass}`} onClick={() => menuOpen(false)} href="/contact">Contact Us</Link>
-              
+              <Link
+                className={`${navClass}`}
+                onClick={() => menuOpen(false)}
+                href="/events"
+              >
+                Events
+              </Link>
+
+              <Link
+                className={`${navClass}`}
+                onClick={() => menuOpen(false)}
+                href="/"
+              >
+                Partners & Sponsors
+              </Link>
+              <Link
+                className={`${navClass}`}
+                onClick={() => menuOpen(false)}
+                href="/about"
+              >
+                About Us
+              </Link>
+              <Link
+                className={`${navClass}`}
+                onClick={() => menuOpen(false)}
+                href="/contact"
+              >
+                Contact Us
+              </Link>
             </nav>
-            <Button classname="w-full">Login</Button>
+            <Button
+              href={"/auth/create-profile"}
+              classname="w-full mt-auto mb-4   border-primary_pressed border-2 px-[20px] py-[12px]
+               rounded-full block text-center bg-white
+              text-primary hover:border-primary_hover  "
+            >
+              Register
+            </Button>
+            <Button href={"/auth"} classname="w-full">
+              Login
+            </Button>
           </div>
         )}
-          
+
         {children}
         <Footer />
       </body>
