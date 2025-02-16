@@ -26,7 +26,7 @@ export default function CreateProfile() {
 
     return (
         <AuthLayout>
-        <form className="w-fit flex flex-col justify-start md:mt-5 sm:items-center gap-4">
+        <div className="w-fit flex flex-col justify-start md:mt-5 sm:items-center gap-4">
             <Heading
             heading="Join the Innovation Movement"
             subHeading="Sign up to start your journey of creativity and collaboration."
@@ -53,7 +53,7 @@ export default function CreateProfile() {
                 />
             )}
 
-        </form>
+        </div>
         </AuthLayout>
     );
 }

@@ -36,7 +36,12 @@ export default function Help() {
         <ul className="flex flex-col gap-1 p-4 bg-primary_subtle rounded-xl">
           <li className="inter ">Ufuoma Morgan (Chairman)</li>
           <li className="inter flex gap-2">
-            <Image src={phone} />+ 234 905 5433 811
+            <Image src={phone} />
+                +234 906 555 3105 - Mohammad Salman
+          </li>
+          <li className="inter flex gap-2">
+            <Image src={phone} />
+            +234 807 546 1423 - Amina Ismail 
           </li>
           <li className="inter flex gap-2">
             <Image src={mail} />
