@@ -15,11 +15,11 @@ import Rules from "./components/landing_page/rules.js"
 import ButtonBlue from "./ui/buttonBlue";
 import ButtonGlass from "./ui/buttonGlass";
 import Link from "next/link";
+import MainWrapper from "./main";
 
 export default function Home() {
     return (
-        <div className="">
-        <main className="flex flex-col items-center gap-[64px] px-5 sm:gap-[96px] md:gap-[112px] lg:gap-[120px]">
+      <MainWrapper>
         <section
           className="bg-custom
                 flex flex-col items-center
@@ -46,7 +46,7 @@ export default function Home() {
 
         <section
           className="flex flex-col items-center text-center gap-[54px]
-            padding-style ma=x-auto">
+            padding-style">
           <Headings
             heading={"Why Project Genius?"}
             subHeading={
@@ -54,7 +54,7 @@ export default function Home() {
             }
           />
 
-          <div className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-5 pb-5 w-[1120px] max-w-[1200px]">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-5 pb-5 max-w-[1200px]">
             {infoData.map((card, index) => (
               <InfoCard
                 key={index}
@@ -127,8 +127,6 @@ export default function Home() {
                 
 
             </section>
-
-        </main>
-        </div>
+      </MainWrapper>
     );
 }

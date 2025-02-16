@@ -15,13 +15,13 @@ const progressData = [
       id: 3,
       title: "Grand Finale",
       description: "Step description",
-      date: "2025-01-06"
+      date: "2025-01-12"
     },
     {
       id: 4,
       title: "Post Event Phase",
       description: "Step description",
-      date: "2025-01-08"
+      date: "2025-01-14"
     },
   ];
 
