@@ -3,6 +3,8 @@ import insta from "../public/icons/instagram.svg";
 import x from "../public/icons/x.svg";
 import linkedin from "../public/icons/linkedin.svg";
 import mail from "../public/icons/mail.svg";
+import { AiFillTikTok } from "react-icons/ai";
+import { IoLogoFacebook } from "react-icons/io";
 
 import ButtonBlue from "./ui/buttonBlue";
 import ButtonGlass from "./ui/buttonGlass";
@@ -95,31 +97,36 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-7 order-1">
-          <h4 className="text-xl font-bold">Contact us</h4>
-          <ul className="flex gap-3">
+        <h4 className="text-xl font-bold">Contact us</h4>
+        <ul className="flex gap-3">
             <li>
-              <Link href="/">
-                <Image src={mail} alt="mail" />
-              </Link>
+                <Link href="https://www.facebook.com/projectgeniusng">
+                    <IoLogoFacebook size={24}/>
+                </Link>
             </li>
             <li>
-              <Link href="/">
-                <Image src={insta} alt="mail" />
-              </Link>
+                <Link href="https://www.instagram.com/_project_genius?igsh=MW1hajRjNnRucTk0ZA==">
+                    <Image src={insta} alt="mail" />
+                </Link>
             </li>
             <li>
-              <Link href="/">
-                <Image src={x} alt="mail" />
-              </Link>
+                <Link href="https://x.com/_ProjectGENIUS?t=x-sjh39CT6uPx2bm34eSIQ&s=08">
+                    <Image src={x} alt="mail" />
+                </Link>
             </li>
             <li>
-              <Link href="https://www.linkedin.com/company/project-genius-ng/">
-                <Image src={linkedin} alt="mail" />
-              </Link>
+                <Link href="https://www.linkedin.com/company/project-genius-ng/">
+                    <Image src={linkedin} alt="mail" />
+                </Link>
             </li>
-          </ul>
+            <li>
+                <Link href="https://www.tiktok.com/@the.project.genie?_t=ZM-8tyH4BEeDGo&_r=1">
+                    <AiFillTikTok size={24}/>
+                </Link>
+            </li>
+        </ul>
         </div>
-      </div>
+    </div>
 
       <div className="flex flex-col pt-8 sm:flex-row-reverse justify-between gap-4 border-t w-full border-t-greyscale_text">
         <ol className="flex gap-4 inter">

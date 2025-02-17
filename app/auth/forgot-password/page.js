@@ -8,42 +8,60 @@ import { useRouter } from "next/router";
 export default function ForgotPassword() {
 
     const [modalOpen, setModalOpen] = useState(false);
-
+    const [email, setEmail] = useState("");
     const openModal = () => setModalOpen(true); // Open modal
     const closeModal = () => setModalOpen(false); // Close modal
-
-    const HandleSubmit = (e) => {
+    const [error, setError] = useState("");
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError("");
 
+        if (!email) {
+            setError("Email is required");
+            return;
+        }
 
-        openModal();
-    }
+        try {
+            const res = await fetch("https://project-genius-back-end.onrender.com/auth/reset", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            });
+
+            if (res.status === 200) {
+                setModalOpen(true);
+            } else {
+                const data = await res.json();
+                setError(data.error || "Something went wrong");
+            }
+        } catch (err) {
+            setError("Failed to send reset email");
+        }
+    };
 
     return (
         <AuthLayout>
             <div className="text-center flex flex-col items-center">
                 
-            <Heading 
-                heading={"Forgot your password?"}
-                subHeading={"Let’s get you back on track. Submit your email to reset your password."}
-            />
-            
-            <form className="flex flex-col gap-4 items-center">
-
-                <div className=" flex flex-col gap-2 text-greyscale_text">
-                    <input type="email"
-                        className="w-[350px] md:w-[600px] px-4 py-3 rounded-xl bg-greyscale_surface_subtle 
-                        focus:outline-primary "
-                        placeholder="Confirm email address"/>
-                </div>
-                <div className="flex flex-col gap-4 items-center">
-                    
-                    <ButtonBlue
-                    classname={"disabled:bg-greyscale_subtitle"}
-                    onClick={HandleSubmit}>
-                        Submit
-                    </ButtonBlue>
-                </div>
+                <Heading 
+                    heading={"Forgot your password?"}
+                    subHeading={"Let’s get you back on track. Submit your email to reset your password."}
+                />
+                <form className="flex flex-col gap-4 items-center" onSubmit={handleSubmit}>
+                    <div className="flex flex-col gap-2 text-greyscale_text">
+                        <input
+                            type="email"
+                            className="w-[350px] md:w-[600px] px-4 py-3 rounded-xl bg-greyscale_surface_subtle 
+                            focus:outline-primary"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    {error && <p className="text-red-500">{error}</p>}
+                    <ButtonBlue type="submit">Submit</ButtonBlue>
+                </form>
 
                 {modalOpen && (
                     <Modal
@@ -52,9 +70,6 @@ export default function ForgotPassword() {
                         modalClose={closeModal}
                     />
                 )}
-                
-            </form>
-            
             </div>
         </AuthLayout>
     )
